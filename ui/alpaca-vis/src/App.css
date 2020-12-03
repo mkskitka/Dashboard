@@ -1,0 +1,30 @@
+
+#root {
+    margin: 10px;
+}
+.App {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  color: #ddd;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(60, 1fr);
+  grid-template-rows: repeat(60, 1fr);
+  overflow: hidden;
+}
+
+.App > .PageHeader {
+  grid-area: 1/1/6/end;
+  border-radius: 5px;
+}
+.App > .Sidebar {
+  grid-area: 6/30/60/end;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.App > .ClusterView {
+  grid-area: 6/1/60/30;
+  border-radius: 5px;
+  overflow: hidden;
+}

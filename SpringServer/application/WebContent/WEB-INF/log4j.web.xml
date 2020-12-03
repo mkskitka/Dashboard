@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is a log4j2 config file. -->
+
+<Configuration>
+  <Appenders>
+    <Console name="STDOUT" target="SYSTEM_OUT">
+      <!-- A relatively terse layout that prints log level, timestamp, location, and message -->
+      <PatternLayout pattern="%level{length=1} %d{HH:mm:ss.SSS'Z'} [%C{1}.%M:%L] %m %throwable %n" />
+    </Console>
+  </Appenders>
+  
+  <Loggers>
+    <Logger name="com.cra" level="debug" />
+    <Logger name="org.springframework" level="debug" />
+    
+    <Root level="info">
+      <AppenderRef ref="STDOUT" />
+    </Root>
+  </Loggers>
+</Configuration>

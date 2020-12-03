@@ -1,0 +1,14 @@
+/application/build/
+/application/dist/
+/application/lib/
+/application/tmp/
+/application/target/
+/project/target/
+/project/project/target/
+/project/build.properties
+/.classpath
+/.project
+/.settings
+/.idea/
+/target
+/lib_managed/

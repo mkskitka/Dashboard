@@ -1,0 +1,26 @@
+{
+   "STUDY_TYPE": "observational",
+   "EXPERIMENTAL_DESIGN": "",
+   "OBSERVATIONAL_DESIGN": "cross-sectional",
+   "HUMAN_SUBJECTS": true,
+   "HYPOTHESIS": true,
+   "HAS_PREDICTED_EFFECT": true,
+   "HAS_INTERACTIONS": true,
+   "HAS_MULTIPLE_COMPARISONS": true,
+   "IS_DIRECTIONAL": true,
+   "DATA_ACCESS": "pre-acquisition",
+   "observations": [
+      "eligibility_selection_criteria",
+      "inclusion_and_exclusion_procedure",
+      "inference_criteria",
+      "cutoff_criteria",
+      "number_of_tails",
+      "measured_variables_definition",
+      "covariates_definition",
+      "plan_for_combining_indices",
+      "predictors_definition",
+      "specification_of_statistical_model",
+      "list_of_interactions",
+      "coding_method"
+   ]
+}

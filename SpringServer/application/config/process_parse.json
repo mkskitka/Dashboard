@@ -1,0 +1,2348 @@
+{
+    "name": "process_parse",
+    "grammatical_stratum": {
+        "name": "process_parse_grm",
+        "root_class": "process_parse_grm_root",
+        "namespace": "process_parse_grm_ns::",
+        "roles": [
+            "Adverb",
+            "DependentVar",
+            "HeadVerb",
+            "IndependentVar",
+            "Preposition",
+            "Result"
+        ],
+        "type": "grm_stratum",
+        "classes": {
+            "adj_result_complement": {
+                "name": "adj_result_complement",
+                "parent": "ADJ_RESULT_COMPLEMENT",
+                "child_type": "NONE",
+                "details": {
+                    "risk": "1"
+                },
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {
+                        "Preposition": "DependentVar",
+                        "Result": "Preposition"
+                    },
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {
+                        "IndependentVar": [
+                            "HeadVerb"
+                        ]
+                    },
+                    "prerejection": {},
+                    "preselection": {
+                        "Preposition": [
+                            "has_result_preposition"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "adj_structure_a": {
+                "name": "adj_structure_a",
+                "parent": "ADJECTIVE_STRUCTURE",
+                "child_type": "EXCLUSIVE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "HEAD_V_TYPE"
+                ],
+                "realization_rules": {
+                    "adjacency": {
+                        "Result": "IndependentVar"
+                    },
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "adj_structure_b": {
+                "name": "adj_structure_b",
+                "parent": "ADJECTIVE_STRUCTURE",
+                "child_type": "ORTHOGONAL",
+                "details": {
+                    "risk": "1"
+                },
+                "fc_notes": [],
+                "systems": [
+                    "ADJ_RESULT_COMPLEMENT",
+                    "ADVERB"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "HeadVerb": [
+                            "be"
+                        ],
+                        "Result": [
+                            "other_adjective"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "adjectival": {
+                "name": "adjectival",
+                "parent": "RESULT_TYPE",
+                "child_type": "EXCLUSIVE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "ADJECTIVE_STRUCTURE"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "adverb": {
+                "name": "adverb",
+                "parent": "ADVERB",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {
+                        "Adverb": "Result",
+                        "HeadVerb": "Adverb"
+                    },
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "Adverb": [
+                            "adverbs"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "copula": {
+                "name": "copula",
+                "parent": "HEAD_V_TYPE",
+                "child_type": "NONE",
+                "details": {
+                    "risk": "1"
+                },
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "Result": [
+                            "be",
+                            "more_result"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "iv_complement": {
+                "name": "iv_complement",
+                "parent": "IV_COMPLEMENT",
+                "child_type": "EXCLUSIVE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "IV_PREPOSITIONS"
+                ],
+                "realization_rules": {
+                    "adjacency": {
+                        "DependentVar": "HeadVerb",
+                        "IndependentVar": "Preposition",
+                        "Preposition": "DependentVar"
+                    },
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "iv_preposition_in": {
+                "name": "iv_preposition_in",
+                "parent": "IV_PREPOSITIONS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "Preposition": [
+                            "result_prep_in"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "iv_preposition_of": {
+                "name": "iv_preposition_of",
+                "parent": "IV_PREPOSITIONS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "Preposition": [
+                            "result_prep_of"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "lex_verb": {
+                "name": "lex_verb",
+                "parent": "HEAD_V_TYPE",
+                "child_type": "EXCLUSIVE",
+                "details": {
+                    "risk": "1"
+                },
+                "fc_notes": [],
+                "systems": [
+                    "RESULT_WORD_CHOICES"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "more": {
+                "name": "more",
+                "parent": "RESULT_WORD_CHOICES",
+                "child_type": "NONE",
+                "details": {
+                    "risk": "1"
+                },
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "Result": [
+                            "more_result"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_adj_result_complement": {
+                "name": "no_adj_result_complement",
+                "parent": "ADJ_RESULT_COMPLEMENT",
+                "child_type": "EXCLUSIVE",
+                "details": {
+                    "risk": "1"
+                },
+                "fc_notes": [],
+                "systems": [
+                    "IV_COMPLEMENT"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_adverb": {
+                "name": "no_adverb",
+                "parent": "ADVERB",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {
+                        "HeadVerb": "Result"
+                    },
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_iv_complement": {
+                "name": "no_iv_complement",
+                "parent": "IV_COMPLEMENT",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {
+                        "IndependentVar": "HeadVerb"
+                    },
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_noun_result_complement": {
+                "name": "no_noun_result_complement",
+                "parent": "NOUN_RESULT_COMPLEMENT",
+                "child_type": "NONE",
+                "details": {
+                    "risk": "1"
+                },
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "nominal": {
+                "name": "nominal",
+                "parent": "RESULT_TYPE",
+                "child_type": "EXCLUSIVE",
+                "details": {
+                    "risk": "1"
+                },
+                "fc_notes": [],
+                "systems": [
+                    "NOUN_RESULT_COMPLEMENT"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "Result": [
+                            "noun_result"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "noun_prep_across": {
+                "name": "noun_prep_across",
+                "parent": "NOUN_COMP_PREP",
+                "child_type": "NONE",
+                "details": {
+                    "risk": "1"
+                },
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "Preposition": [
+                            "result_prep_across"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "noun_prep_between": {
+                "name": "noun_prep_between",
+                "parent": "NOUN_COMP_PREP",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "Preposition": [
+                            "result_prep_between"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "noun_prep_in": {
+                "name": "noun_prep_in",
+                "parent": "NOUN_COMP_PREP",
+                "child_type": "NONE",
+                "details": {
+                    "risk": "1"
+                },
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "Preposition": [
+                            "result_prep_in"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "noun_prep_of": {
+                "name": "noun_prep_of",
+                "parent": "NOUN_COMP_PREP",
+                "child_type": "NONE",
+                "details": {
+                    "risk": "1"
+                },
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "Preposition": [
+                            "result_prep_of"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "noun_result_complement": {
+                "name": "noun_result_complement",
+                "parent": "NOUN_RESULT_COMPLEMENT",
+                "child_type": "EXCLUSIVE",
+                "details": {
+                    "risk": "1"
+                },
+                "fc_notes": [],
+                "systems": [
+                    "NOUN_COMP_PREP"
+                ],
+                "realization_rules": {
+                    "adjacency": {
+                        "Preposition": "IndependentVar"
+                    },
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "other_adj": {
+                "name": "other_adj",
+                "parent": "RESULT_WORD_CHOICES",
+                "child_type": "NONE",
+                "details": {
+                    "risk": "1"
+                },
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "Result": [
+                            "other_adjective"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "process_parse_grm_root": {
+                "name": "process_parse_grm_root",
+                "parent": "none",
+                "child_type": "EXCLUSIVE",
+                "details": {
+                    "risk": "1"
+                },
+                "fc_notes": [],
+                "systems": [
+                    "RESULT_TYPE"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {
+                        "IndependentVar": "<NP>"
+                    },
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "DependentVar": [
+                            "noun_phrase"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {
+                        "DependentVar": "DEPENDENT_VAR",
+                        "IndependentVar": "INDEPENDENT_VAR",
+                        "Result": "RESULT"
+                    }
+                }
+            },
+            "verbal": {
+                "name": "verbal",
+                "parent": "RESULT_TYPE",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {
+                        "IndependentVar": [
+                            "Result"
+                        ],
+                        "Result": [
+                            "DependentVar"
+                        ]
+                    },
+                    "prerejection": {},
+                    "preselection": {
+                        "Result": [
+                            "verb_result"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            }
+        },
+        "systems": {
+            "ADJECTIVE_STRUCTURE": {
+                "parent": "adjectival",
+                "classes": {
+                    "adj_structure_a": {
+                        "probability": 0.5,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "adj_structure_b": {
+                        "probability": 0.5,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "ADJ_RESULT_COMPLEMENT": {
+                "parent": "adj_structure_b",
+                "classes": {
+                    "adj_result_complement": {
+                        "probability": 0.5,
+                        "ui_order": "0",
+                        "visit_order": "1"
+                    },
+                    "no_adj_result_complement": {
+                        "probability": 0.5,
+                        "ui_order": "1",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "ADVERB": {
+                "parent": "adj_structure_b",
+                "classes": {
+                    "adverb": {
+                        "probability": 0.5,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_adverb": {
+                        "probability": 0.5,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "HEAD_V_TYPE": {
+                "parent": "adj_structure_a",
+                "classes": {
+                    "copula": {
+                        "probability": 0.5,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "lex_verb": {
+                        "probability": 0.5,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "IV_COMPLEMENT": {
+                "parent": "no_adj_result_complement",
+                "classes": {
+                    "iv_complement": {
+                        "probability": 0.5,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_iv_complement": {
+                        "probability": 0.5,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "IV_PREPOSITIONS": {
+                "parent": "iv_complement",
+                "classes": {
+                    "iv_preposition_in": {
+                        "probability": 0.5,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "iv_preposition_of": {
+                        "probability": 0.5,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "NOUN_COMP_PREP": {
+                "parent": "noun_result_complement",
+                "classes": {
+                    "noun_prep_across": {
+                        "probability": 0.25,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "noun_prep_between": {
+                        "probability": 0.25,
+                        "ui_order": "3",
+                        "visit_order": "3"
+                    },
+                    "noun_prep_in": {
+                        "probability": 0.25,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "noun_prep_of": {
+                        "probability": 0.25,
+                        "ui_order": "2",
+                        "visit_order": "2"
+                    }
+                }
+            },
+            "NOUN_RESULT_COMPLEMENT": {
+                "parent": "nominal",
+                "classes": {
+                    "no_noun_result_complement": {
+                        "probability": 0.5,
+                        "ui_order": "1",
+                        "visit_order": "0"
+                    },
+                    "noun_result_complement": {
+                        "probability": 0.5,
+                        "ui_order": "0",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "RESULT_TYPE": {
+                "parent": "process_parse_grm_root",
+                "classes": {
+                    "adjectival": {
+                        "probability": 0.33,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "nominal": {
+                        "probability": 0.33,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "verbal": {
+                        "probability": 0.33,
+                        "ui_order": "2",
+                        "visit_order": "2"
+                    }
+                }
+            },
+            "RESULT_WORD_CHOICES": {
+                "parent": "lex_verb",
+                "classes": {
+                    "more": {
+                        "probability": 0.5,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "other_adj": {
+                        "probability": 0.5,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            }
+        },
+        "gates": {}
+    },
+    "contextual_stratum": {
+        "name": "process_parse_ctx",
+        "root_class": "process_parse_ctx_root",
+        "namespace": "process_parse_ctx_ns::",
+        "roles": [
+            "GRM"
+        ],
+        "type": "ctx_stratum",
+        "classes": {
+            "process_parse_ctx_root": {
+                "name": "process_parse_ctx_root",
+                "parent": "none",
+                "child_type": "NONE",
+                "details": {
+                    "risk": "1"
+                },
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "GRM": [
+                            "process_parse_grm_root"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            }
+        },
+        "systems": {},
+        "gates": {}
+    },
+    "component_networks": {
+        "lexicon": {
+            "name": "lexicon",
+            "root_class": "lexicon_root",
+            "namespace": "lexicon_ns::",
+            "roles": [],
+            "type": "component_nw",
+            "classes": {
+                "adverbs": {
+                    "name": "adverbs",
+                    "parent": "LEX_CLASS",
+                    "child_type": "EXCLUSIVE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [
+                        "ADVERB_TYPE"
+                    ],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "also": {
+                    "name": "also",
+                    "parent": "ADVERB_TYPE",
+                    "child_type": "NONE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "be": {
+                    "name": "be",
+                    "parent": "AUXILIARY",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "do": {
+                    "name": "do",
+                    "parent": "AUXILIARY",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "finite_verb": {
+                    "name": "finite_verb",
+                    "parent": "FINITE",
+                    "child_type": "EXCLUSIVE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [
+                        "TENSE"
+                    ],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "has_result_preposition": {
+                    "name": "has_result_preposition",
+                    "parent": "HAS_RESULT_PREP",
+                    "child_type": "EXCLUSIVE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [
+                        "RESULT_PREP_TYPE"
+                    ],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "have": {
+                    "name": "have",
+                    "parent": "AUXILIARY",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "infinitive": {
+                    "name": "infinitive",
+                    "parent": "FINITE",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "jointly": {
+                    "name": "jointly",
+                    "parent": "ADVERB_TYPE",
+                    "child_type": "NONE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "lexicon_root": {
+                    "name": "lexicon_root",
+                    "parent": "none",
+                    "child_type": "ORTHOGONAL",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [
+                        "LEX_CLASS",
+                        "LEX_NUMBER",
+                        "RESULT"
+                    ],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "negative": {
+                    "name": "negative",
+                    "parent": "LEX_CLASS",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "no_aux": {
+                    "name": "no_aux",
+                    "parent": "AUXILIARY",
+                    "child_type": "NONE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "no_has_mod": {
+                    "name": "no_has_mod",
+                    "parent": "HAS_MOD",
+                    "child_type": "NONE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "no_result": {
+                    "name": "no_result",
+                    "parent": "RESULT",
+                    "child_type": "NONE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "no_result_lex": {
+                    "name": "no_result_lex",
+                    "parent": "RESULT_LEX",
+                    "child_type": "NONE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "no_result_preposition": {
+                    "name": "no_result_preposition",
+                    "parent": "HAS_RESULT_PREP",
+                    "child_type": "NONE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "noun": {
+                    "name": "noun",
+                    "parent": "LEX_CLASS",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "noun_result_word": {
+                    "name": "noun_result_word",
+                    "parent": "RES_TYPE",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "only": {
+                    "name": "only",
+                    "parent": "ADVERB_TYPE",
+                    "child_type": "NONE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "participants": {
+                    "name": "participants",
+                    "parent": "LEX_CLASS",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "past": {
+                    "name": "past",
+                    "parent": "TENSE",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "past_participle": {
+                    "name": "past_participle",
+                    "parent": "FINITE",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "plural": {
+                    "name": "plural",
+                    "parent": "LEX_NUMBER",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "present": {
+                    "name": "present",
+                    "parent": "TENSE",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "present_participle": {
+                    "name": "present_participle",
+                    "parent": "FINITE",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "result": {
+                    "name": "result",
+                    "parent": "RESULT",
+                    "child_type": "ORTHOGONAL",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [
+                        "HAS_MOD",
+                        "HAS_RESULT_PREP",
+                        "RESULT_LEX"
+                    ],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "result_head_verb": {
+                    "name": "result_head_verb",
+                    "parent": "RES_TYPE",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "result_lex": {
+                    "name": "result_lex",
+                    "parent": "RESULT_LEX",
+                    "child_type": "EXCLUSIVE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [
+                        "RES_TYPE"
+                    ],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "result_modifier": {
+                    "name": "result_modifier",
+                    "parent": "HAS_MOD",
+                    "child_type": "NONE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "result_prep_across": {
+                    "name": "result_prep_across",
+                    "parent": "RESULT_PREP_TYPE",
+                    "child_type": "NONE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "result_prep_among": {
+                    "name": "result_prep_among",
+                    "parent": "RESULT_PREP_TYPE",
+                    "child_type": "NONE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "result_prep_between": {
+                    "name": "result_prep_between",
+                    "parent": "RESULT_PREP_TYPE",
+                    "child_type": "NONE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "result_prep_in": {
+                    "name": "result_prep_in",
+                    "parent": "RESULT_PREP_TYPE",
+                    "child_type": "NONE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "result_prep_of": {
+                    "name": "result_prep_of",
+                    "parent": "RESULT_PREP_TYPE",
+                    "child_type": "NONE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "result_prep_on": {
+                    "name": "result_prep_on",
+                    "parent": "RESULT_PREP_TYPE",
+                    "child_type": "NONE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "result_word_adj": {
+                    "name": "result_word_adj",
+                    "parent": "RES_TYPE",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "result_word_more": {
+                    "name": "result_word_more",
+                    "parent": "RES_TYPE",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "singular": {
+                    "name": "singular",
+                    "parent": "LEX_NUMBER",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "stem": {
+                    "name": "stem",
+                    "parent": "FINITE",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "verb": {
+                    "name": "verb",
+                    "parent": "LEX_CLASS",
+                    "child_type": "ORTHOGONAL",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [
+                        "AUXILIARY",
+                        "FINITE"
+                    ],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                }
+            },
+            "systems": {
+                "ADVERB_TYPE": {
+                    "parent": "adverbs",
+                    "classes": {
+                        "also": {
+                            "probability": 0.33,
+                            "ui_order": "0",
+                            "visit_order": "0"
+                        },
+                        "jointly": {
+                            "probability": 0.33,
+                            "ui_order": "2",
+                            "visit_order": "2"
+                        },
+                        "only": {
+                            "probability": 0.33,
+                            "ui_order": "1",
+                            "visit_order": "1"
+                        }
+                    }
+                },
+                "AUXILIARY": {
+                    "parent": "verb",
+                    "classes": {
+                        "be": {
+                            "probability": 0.25,
+                            "ui_order": "0",
+                            "visit_order": "0"
+                        },
+                        "do": {
+                            "probability": 0.25,
+                            "ui_order": "2",
+                            "visit_order": "2"
+                        },
+                        "have": {
+                            "probability": 0.25,
+                            "ui_order": "1",
+                            "visit_order": "1"
+                        },
+                        "no_aux": {
+                            "probability": 0.25,
+                            "ui_order": "3",
+                            "visit_order": "3"
+                        }
+                    }
+                },
+                "FINITE": {
+                    "parent": "verb",
+                    "classes": {
+                        "finite_verb": {
+                            "probability": 0.2,
+                            "ui_order": "0",
+                            "visit_order": "0"
+                        },
+                        "infinitive": {
+                            "probability": 0.2,
+                            "ui_order": "3",
+                            "visit_order": "3"
+                        },
+                        "past_participle": {
+                            "probability": 0.2,
+                            "ui_order": "1",
+                            "visit_order": "1"
+                        },
+                        "present_participle": {
+                            "probability": 0.2,
+                            "ui_order": "2",
+                            "visit_order": "2"
+                        },
+                        "stem": {
+                            "probability": 0.2,
+                            "ui_order": "4",
+                            "visit_order": "4"
+                        }
+                    }
+                },
+                "HAS_MOD": {
+                    "parent": "result",
+                    "classes": {
+                        "no_has_mod": {
+                            "probability": 0.5,
+                            "ui_order": "1",
+                            "visit_order": "1"
+                        },
+                        "result_modifier": {
+                            "probability": 0.5,
+                            "ui_order": "0",
+                            "visit_order": "0"
+                        }
+                    }
+                },
+                "HAS_RESULT_PREP": {
+                    "parent": "result",
+                    "classes": {
+                        "has_result_preposition": {
+                            "probability": 0.5,
+                            "ui_order": "1",
+                            "visit_order": "1"
+                        },
+                        "no_result_preposition": {
+                            "probability": 0.5,
+                            "ui_order": "0",
+                            "visit_order": "0"
+                        }
+                    }
+                },
+                "LEX_CLASS": {
+                    "parent": "lexicon_root",
+                    "classes": {
+                        "adverbs": {
+                            "probability": 0.2,
+                            "ui_order": "4",
+                            "visit_order": "4"
+                        },
+                        "negative": {
+                            "probability": 0.2,
+                            "ui_order": "0",
+                            "visit_order": "0"
+                        },
+                        "noun": {
+                            "probability": 0.2,
+                            "ui_order": "3",
+                            "visit_order": "3"
+                        },
+                        "participants": {
+                            "probability": 0.2,
+                            "ui_order": "1",
+                            "visit_order": "1"
+                        },
+                        "verb": {
+                            "probability": 0.2,
+                            "ui_order": "2",
+                            "visit_order": "2"
+                        }
+                    }
+                },
+                "LEX_NUMBER": {
+                    "parent": "lexicon_root",
+                    "classes": {
+                        "plural": {
+                            "probability": 0.5,
+                            "ui_order": "1",
+                            "visit_order": "1"
+                        },
+                        "singular": {
+                            "probability": 0.5,
+                            "ui_order": "0",
+                            "visit_order": "0"
+                        }
+                    }
+                },
+                "RESULT": {
+                    "parent": "lexicon_root",
+                    "classes": {
+                        "no_result": {
+                            "probability": 0.5,
+                            "ui_order": "1",
+                            "visit_order": "1"
+                        },
+                        "result": {
+                            "probability": 0.5,
+                            "ui_order": "0",
+                            "visit_order": "0"
+                        }
+                    }
+                },
+                "RESULT_LEX": {
+                    "parent": "result",
+                    "classes": {
+                        "no_result_lex": {
+                            "probability": 0.5,
+                            "ui_order": "1",
+                            "visit_order": "1"
+                        },
+                        "result_lex": {
+                            "probability": 0.5,
+                            "ui_order": "0",
+                            "visit_order": "0"
+                        }
+                    }
+                },
+                "RESULT_PREP_TYPE": {
+                    "parent": "has_result_preposition",
+                    "classes": {
+                        "result_prep_across": {
+                            "probability": 0.17,
+                            "ui_order": "2",
+                            "visit_order": "2"
+                        },
+                        "result_prep_among": {
+                            "probability": 0.17,
+                            "ui_order": "3",
+                            "visit_order": "3"
+                        },
+                        "result_prep_between": {
+                            "probability": 0.17,
+                            "ui_order": "4",
+                            "visit_order": "4"
+                        },
+                        "result_prep_in": {
+                            "probability": 0.17,
+                            "ui_order": "0",
+                            "visit_order": "0"
+                        },
+                        "result_prep_of": {
+                            "probability": 0.17,
+                            "ui_order": "1",
+                            "visit_order": "1"
+                        },
+                        "result_prep_on": {
+                            "probability": 0.17,
+                            "ui_order": "5",
+                            "visit_order": "5"
+                        }
+                    }
+                },
+                "RES_TYPE": {
+                    "parent": "result_lex",
+                    "classes": {
+                        "noun_result_word": {
+                            "probability": 0.25,
+                            "ui_order": "1",
+                            "visit_order": "1"
+                        },
+                        "result_head_verb": {
+                            "probability": 0.25,
+                            "ui_order": "3",
+                            "visit_order": "3"
+                        },
+                        "result_word_adj": {
+                            "probability": 0.25,
+                            "ui_order": "0",
+                            "visit_order": "0"
+                        },
+                        "result_word_more": {
+                            "probability": 0.25,
+                            "ui_order": "2",
+                            "visit_order": "2"
+                        }
+                    }
+                },
+                "TENSE": {
+                    "parent": "finite_verb",
+                    "classes": {
+                        "past": {
+                            "probability": 0.5,
+                            "ui_order": "1",
+                            "visit_order": "1"
+                        },
+                        "present": {
+                            "probability": 0.5,
+                            "ui_order": "0",
+                            "visit_order": "0"
+                        }
+                    }
+                }
+            },
+            "gates": {}
+        },
+        "entity": {
+            "name": "entity",
+            "root_class": "entity_root",
+            "namespace": "entity_ns::",
+            "roles": [
+                "Head",
+                "Mod",
+                "Neg"
+            ],
+            "type": "component_nw",
+            "classes": {
+                "entity_root": {
+                    "name": "entity_root",
+                    "parent": "none",
+                    "child_type": "EXCLUSIVE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [
+                        "ENTITY_TYPE"
+                    ],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {
+                            "Head": "HEAD"
+                        }
+                    }
+                },
+                "explicit_negation": {
+                    "name": "explicit_negation",
+                    "parent": "EXPLICIT_NEGATION",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {
+                            "Neg": [
+                                "negative"
+                            ]
+                        },
+                        "semselection": {
+                            "None": [
+                                "NEGATIVE"
+                            ]
+                        },
+                        "unification": {}
+                    }
+                },
+                "modified_result": {
+                    "name": "modified_result",
+                    "parent": "MODIFIED_RESULT",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {
+                            "Mod": [
+                                "result_modifier"
+                            ]
+                        },
+                        "semselection": {},
+                        "unification": {
+                            "Mod": "MODIFIER"
+                        }
+                    }
+                },
+                "more_result": {
+                    "name": "more_result",
+                    "parent": "RESULT_WORDS",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {
+                            "Head": [
+                                "result_word_more"
+                            ]
+                        },
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "no_explicit_negation": {
+                    "name": "no_explicit_negation",
+                    "parent": "EXPLICIT_NEGATION",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "no_modified_result": {
+                    "name": "no_modified_result",
+                    "parent": "MODIFIED_RESULT",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "noun_phrase": {
+                    "name": "noun_phrase",
+                    "parent": "ENTITY_TYPE",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {
+                            "Head": "<NP>"
+                        },
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "noun_result": {
+                    "name": "noun_result",
+                    "parent": "RESULT_WORDS",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {
+                            "Head": [
+                                "noun_result_word"
+                            ]
+                        },
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "other_adjective": {
+                    "name": "other_adjective",
+                    "parent": "RESULT_WORDS",
+                    "child_type": "NONE",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {
+                            "Head": [
+                                "result_word_adj"
+                            ]
+                        },
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "result_keyword": {
+                    "name": "result_keyword",
+                    "parent": "ENTITY_TYPE",
+                    "child_type": "ORTHOGONAL",
+                    "details": {
+                        "risk": "1"
+                    },
+                    "fc_notes": [],
+                    "systems": [
+                        "EXPLICIT_NEGATION",
+                        "MODIFIED_RESULT",
+                        "RESULT_WORDS"
+                    ],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {},
+                        "semselection": {},
+                        "unification": {}
+                    }
+                },
+                "verb_result": {
+                    "name": "verb_result",
+                    "parent": "RESULT_WORDS",
+                    "child_type": "NONE",
+                    "details": {},
+                    "fc_notes": [],
+                    "systems": [],
+                    "realization_rules": {
+                        "adjacency": {},
+                        "conflation": {},
+                        "expansion": {},
+                        "insertion": [],
+                        "lexification": {},
+                        "partition": {},
+                        "prerejection": {},
+                        "preselection": {
+                            "Head": [
+                                "result_head_verb"
+                            ]
+                        },
+                        "semselection": {},
+                        "unification": {}
+                    }
+                }
+            },
+            "systems": {
+                "ENTITY_TYPE": {
+                    "parent": "entity_root",
+                    "classes": {
+                        "noun_phrase": {
+                            "probability": 0.5,
+                            "ui_order": "0",
+                            "visit_order": "0"
+                        },
+                        "result_keyword": {
+                            "probability": 0.5,
+                            "ui_order": "1",
+                            "visit_order": "1"
+                        }
+                    }
+                },
+                "EXPLICIT_NEGATION": {
+                    "parent": "result_keyword",
+                    "classes": {
+                        "explicit_negation": {
+                            "probability": 0.5,
+                            "ui_order": "0",
+                            "visit_order": "0"
+                        },
+                        "no_explicit_negation": {
+                            "probability": 0.5,
+                            "ui_order": "1",
+                            "visit_order": "1"
+                        }
+                    }
+                },
+                "MODIFIED_RESULT": {
+                    "parent": "result_keyword",
+                    "classes": {
+                        "modified_result": {
+                            "probability": 0.5,
+                            "ui_order": "0",
+                            "visit_order": "0"
+                        },
+                        "no_modified_result": {
+                            "probability": 0.5,
+                            "ui_order": "1",
+                            "visit_order": "1"
+                        }
+                    }
+                },
+                "RESULT_WORDS": {
+                    "parent": "result_keyword",
+                    "classes": {
+                        "more_result": {
+                            "probability": 0.25,
+                            "ui_order": "0",
+                            "visit_order": "0"
+                        },
+                        "noun_result": {
+                            "probability": 0.25,
+                            "ui_order": "2",
+                            "visit_order": "2"
+                        },
+                        "other_adjective": {
+                            "probability": 0.25,
+                            "ui_order": "1",
+                            "visit_order": "1"
+                        },
+                        "verb_result": {
+                            "probability": 0.25,
+                            "ui_order": "3",
+                            "visit_order": "3"
+                        }
+                    }
+                }
+            },
+            "gates": {}
+        }
+    }
+}

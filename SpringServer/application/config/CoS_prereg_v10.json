@@ -1,0 +1,3840 @@
+{
+    "name": "CoS_prereg_v10",
+    "grammatical_stratum": {
+        "name": "CoS_prereg_v8_grm",
+        "root_class": "cos_prereg_v8_grm_root",
+        "namespace": "CoS_prereg_v8_grm_ns::",
+        "roles": [],
+        "type": "grm_stratum",
+        "classes": {
+            "analyst_blinding": {
+                "name": "analyst_blinding",
+                "parent": "ANALYST_BLINDING",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "blinding": {
+                "name": "blinding",
+                "parent": "BLINDING",
+                "child_type": "ORTHOGONAL",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "ANALYST_BLINDING",
+                    "EXPERIMENTER_BLINDING",
+                    "SUBJECT_BLINDING"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "centering_method": {
+                "name": "centering_method",
+                "parent": "CENTERING",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "coding_method": {
+                "name": "coding_method",
+                "parent": "CODING_CATEGORICAL_VARIABLES",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "contrasts_specification": {
+                "name": "contrasts_specification",
+                "parent": "CONTRASTS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "cos_prereg_v8_grm_root": {
+                "name": "cos_prereg_v8_grm_root",
+                "parent": "none",
+                "child_type": "ORTHOGONAL",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "BLINDING",
+                    "COUNTERBALANCING",
+                    "DATA_COLLECTION_PROCEDURE",
+                    "INFERENCE_CRITERIA",
+                    "INTERACTIONS",
+                    "MANIPULATED_VARIABLES",
+                    "MEASURED_VARIABLES",
+                    "RANDOMIZATION_METHOD",
+                    "SAMPLE_SIZE",
+                    "STATISTICAL_MODELS"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "covariates_definition": {
+                "name": "covariates_definition",
+                "parent": "COVARIATES",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "cutoff_criteria": {
+                "name": "cutoff_criteria",
+                "parent": "CUTOFF_CRITERIA",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "data_collection_procedure": {
+                "name": "data_collection_procedure",
+                "parent": "DATA_COLLECTION_PROCEDURE",
+                "child_type": "ORTHOGONAL",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "POPULATION",
+                    "SAMPLE_COLLECTION",
+                    "SAMPLING_METHOD",
+                    "SOURCE_LOCATION_AND_BATCH_OF_SAMPLES",
+                    "USE_HUMAN_SUBJECTS"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "definition_of_positive_controls": {
+                "name": "definition_of_positive_controls",
+                "parent": "POSITIVE_CONTROLS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "details_of_manipulation_checks": {
+                "name": "details_of_manipulation_checks",
+                "parent": "MANIPULATION_CHECKS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "duration_of_sampling_efforts": {
+                "name": "duration_of_sampling_efforts",
+                "parent": "DURATION_OF_SAMPLING_EFFORTS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "eligibility_selection_criteria": {
+                "name": "eligibility_selection_criteria",
+                "parent": "ELIGIBILITY_SELECTION",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "experimenter_blinding": {
+                "name": "experimenter_blinding",
+                "parent": "EXPERIMENTER_BLINDING",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "explanation_of_existing_data": {
+                "name": "explanation_of_existing_data",
+                "parent": "EXPLANATION_OF_EXISTING_DATA",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "inclusion_and_exclusion_procedure": {
+                "name": "inclusion_and_exclusion_procedure",
+                "parent": "INCLUSION_AND_EXCLUSION",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "inference_criteria": {
+                "name": "inference_criteria",
+                "parent": "INFERENCE_CRITERIA",
+                "child_type": "ORTHOGONAL",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "CUTOFF_CRITERIA",
+                    "DIRECTIONALITY",
+                    "MULTIPLE_COMPARISONS"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "level_size_rationale": {
+                "name": "level_size_rationale",
+                "parent": "LEVEL_SIZE_RATIONALE",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "list_of_hypotheses": {
+                "name": "list_of_hypotheses",
+                "parent": "DIRECTIONALITY_OF_HYPOTHESES",
+                "child_type": "EXCLUSIVE",
+                "details": {},
+                "fc_notes": [
+                    "Always selected"
+                ],
+                "systems": [
+                    "DIRECTIONALITY_OF_HYPOTHESES"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "list_of_interactions": {
+                "name": "list_of_interactions",
+                "parent": "INTERACTIONS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "manipulated_variables_definition": {
+                "name": "manipulated_variables_definition",
+                "parent": "MANIPULATED_VARIABLES",
+                "child_type": "EXCLUSIVE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "MANIPULATION_CHECKS"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "measured_variables_definition": {
+                "name": "measured_variables_definition",
+                "parent": "MEASURED_VARIABLES",
+                "child_type": "ORTHOGONAL",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "COVARIATES",
+                    "INDICES",
+                    "PREDICTORS"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "multiple_comparisons_control_plan": {
+                "name": "multiple_comparisons_control_plan",
+                "parent": "MULTIPLE_COMPARISONS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_analyst_blinding": {
+                "name": "no_analyst_blinding",
+                "parent": "ANALYST_BLINDING",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_blinding": {
+                "name": "no_blinding",
+                "parent": "BLINDING",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_centering_method": {
+                "name": "no_centering_method",
+                "parent": "CENTERING",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_coding_method": {
+                "name": "no_coding_method",
+                "parent": "CODING_CATEGORICAL_VARIABLES",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_contrasts_specification": {
+                "name": "no_contrasts_specification",
+                "parent": "CONTRASTS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_covariates_definition": {
+                "name": "no_covariates_definition",
+                "parent": "COVARIATES",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_cutoff_criteria": {
+                "name": "no_cutoff_criteria",
+                "parent": "CUTOFF_CRITERIA",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_data_collection_procedure": {
+                "name": "no_data_collection_procedure",
+                "parent": "DATA_COLLECTION_PROCEDURE",
+                "child_type": "EXCLUSIVE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "EXPLANATION_OF_EXISTING_DATA"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_definition_of_positive_controls": {
+                "name": "no_definition_of_positive_controls",
+                "parent": "POSITIVE_CONTROLS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_details_of_manipulation_checks": {
+                "name": "no_details_of_manipulation_checks",
+                "parent": "MANIPULATION_CHECKS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_duration_of_sampling_efforts": {
+                "name": "no_duration_of_sampling_efforts",
+                "parent": "DURATION_OF_SAMPLING_EFFORTS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_eligibility_selection": {
+                "name": "no_eligibility_selection",
+                "parent": "ELIGIBILITY_SELECTION",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_experimenter_blinding": {
+                "name": "no_experimenter_blinding",
+                "parent": "EXPERIMENTER_BLINDING",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_explanation_of_existing_data": {
+                "name": "no_explanation_of_existing_data",
+                "parent": "EXPLANATION_OF_EXISTING_DATA",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_inclusion_and_exclusion_procedure": {
+                "name": "no_inclusion_and_exclusion_procedure",
+                "parent": "INCLUSION_AND_EXCLUSION",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_inference_criteria": {
+                "name": "no_inference_criteria",
+                "parent": "INFERENCE_CRITERIA",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_level_size_rationale": {
+                "name": "no_level_size_rationale",
+                "parent": "LEVEL_SIZE_RATIONALE",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_list_of_interactions": {
+                "name": "no_list_of_interactions",
+                "parent": "INTERACTIONS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_manipulated_variables_definition": {
+                "name": "no_manipulated_variables_definition",
+                "parent": "MANIPULATED_VARIABLES",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_measured_variables_definition": {
+                "name": "no_measured_variables_definition",
+                "parent": "MEASURED_VARIABLES",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_multiple_comparisons_control_plan": {
+                "name": "no_multiple_comparisons_control_plan",
+                "parent": "MULTIPLE_COMPARISONS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_number_of_tails": {
+                "name": "no_number_of_tails",
+                "parent": "DIRECTIONALITY",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_plan_for_combining_indices": {
+                "name": "no_plan_for_combining_indices",
+                "parent": "INDICES",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_plan_for_payment": {
+                "name": "no_plan_for_payment",
+                "parent": "PAYMENT_FOR_PARTICIPATION",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_posthoc_specification": {
+                "name": "no_posthoc_specification",
+                "parent": "POSTHOC",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_predictors_definition": {
+                "name": "no_predictors_definition",
+                "parent": "PREDICTORS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_recoding_method": {
+                "name": "no_recoding_method",
+                "parent": "RECODING",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_recruitment_plan": {
+                "name": "no_recruitment_plan",
+                "parent": "RECRUITMENT_PLAN",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_response_about_sample_population": {
+                "name": "no_response_about_sample_population",
+                "parent": "POPULATION",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_sample_collection_procedure": {
+                "name": "no_sample_collection_procedure",
+                "parent": "SAMPLE_COLLECTION",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_sample_size": {
+                "name": "no_sample_size",
+                "parent": "SAMPLE_SIZE",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_sample_size_rationale": {
+                "name": "no_sample_size_rationale",
+                "parent": "SAMPLE_SIZE_RATIONALE",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_sampling_method": {
+                "name": "no_sampling_method",
+                "parent": "SAMPLING_METHOD",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_source_location_and_batch_info": {
+                "name": "no_source_location_and_batch_info",
+                "parent": "SOURCE_LOCATION_AND_BATCH_OF_SAMPLES",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_specification_of_negative_controls": {
+                "name": "no_specification_of_negative_controls",
+                "parent": "NEGATIVE_CONTROLS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_specification_of_statistical_model": {
+                "name": "no_specification_of_statistical_model",
+                "parent": "STATISTICAL_MODELS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_statement_about_directionality_of_hypotheses": {
+                "name": "no_statement_about_directionality_of_hypotheses",
+                "parent": "DIRECTIONALITY_OF_HYPOTHESES",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_statement_of_counterbalancing": {
+                "name": "no_statement_of_counterbalancing",
+                "parent": "COUNTERBALANCING",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_statement_of_randomization_method": {
+                "name": "no_statement_of_randomization_method",
+                "parent": "RANDOMIZATION_METHOD",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_stopping_rule": {
+                "name": "no_stopping_rule",
+                "parent": "STOPPING_RULE",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_subgroup_analysis": {
+                "name": "no_subgroup_analysis",
+                "parent": "SUBGROUP_ANALYSIS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_subject_blinding": {
+                "name": "no_subject_blinding",
+                "parent": "SUBJECT_BLINDING",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_transformation_plan": {
+                "name": "no_transformation_plan",
+                "parent": "TRANSFORMATIONS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_use_human_subjects": {
+                "name": "no_use_human_subjects",
+                "parent": "USE_HUMAN_SUBJECTS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "number_of_tails": {
+                "name": "number_of_tails",
+                "parent": "DIRECTIONALITY",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "plan_for_combining_indices": {
+                "name": "plan_for_combining_indices",
+                "parent": "INDICES",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "plan_for_payment": {
+                "name": "plan_for_payment",
+                "parent": "PAYMENT_FOR_PARTICIPATION",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+           "posthoc_specification": {
+                "name": "posthoc_specification",
+                "parent": "POSTHOC",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "predictors_definition": {
+                "name": "predictors_definition",
+                "parent": "PREDICTORS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "recoding_method": {
+                "name": "recoding_method",
+                "parent": "RECODING",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "recruitment_plan": {
+                "name": "recruitment_plan",
+                "parent": "RECRUITMENT_PLAN",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "response_about_sample_population": {
+                "name": "response_about_sample_population",
+                "parent": "POPULATION",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "sample_collection_procedure": {
+                "name": "sample_collection_procedure",
+                "parent": "SAMPLE_COLLECTION",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "sample_size_rationale": {
+                "name": "sample_size_rationale",
+                "parent": "SAMPLE_SIZE_RATIONALE",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "sampling_method": {
+                "name": "sampling_method",
+                "parent": "SAMPLING_METHOD",
+                "child_type": "EXCLUSIVE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "STOPPING_RULE"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "source_location_and_batch_info": {
+                "name": "source_location_and_batch_info",
+                "parent": "SOURCE_LOCATION_AND_BATCH_OF_SAMPLES",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "specification_of_negative_controls": {
+                "name": "specification_of_negative_controls",
+                "parent": "NEGATIVE_CONTROLS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "specification_of_statistical_model": {
+                "name": "specification_of_statistical_model",
+                "parent": "STATISTICAL_MODELS",
+                "child_type": "ORTHOGONAL",
+                "details": {},
+                "fc_notes": [
+                    "Add PostHoc Tests later"
+                ],
+                "systems": [
+                    "CONTRASTS",
+                    "NEGATIVE_CONTROLS",
+                    "POSITIVE_CONTROLS",
+                    "POSTHOC",
+                    "SUBGROUP_ANALYSIS",
+                    "TRANSFORMATIONS"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "statement_about_directionality_of_hypotheses": {
+                "name": "statement_about_directionality_of_hypotheses",
+                "parent": "DIRECTIONALITY_OF_HYPOTHESES",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [
+                    "Always selected"
+                ],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "statement_of_counterbalancing": {
+                "name": "statement_of_counterbalancing",
+                "parent": "COUNTERBALANCING",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "statement_of_level_sizes": {
+                "name": "statement_of_level_sizes",
+                "parent": "SAMPLE_SIZE",
+                "child_type": "EXCLUSIVE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "LEVEL_SIZE_RATIONALE"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "statement_of_overall_sample_size": {
+                "name": "statement_of_overall_sample_size",
+                "parent": "SAMPLE_SIZE",
+                "child_type": "EXCLUSIVE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "SAMPLE_SIZE_RATIONALE"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "statement_of_randomization_method": {
+                "name": "statement_of_randomization_method",
+                "parent": "RANDOMIZATION_METHOD",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "stopping_rule": {
+                "name": "stopping_rule",
+                "parent": "STOPPING_RULE",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "subgroup_analysis": {
+                "name": "subgroup_analysis",
+                "parent": "SUBGROUP_ANALYSIS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "subject_blinding": {
+                "name": "subject_blinding",
+                "parent": "SUBJECT_BLINDING",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "transformation_plan": {
+                "name": "transformation_plan",
+                "parent": "TRANSFORMATIONS",
+                "child_type": "ORTHOGONAL",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "CENTERING",
+                    "CODING_CATEGORICAL_VARIABLES",
+                    "RECODING"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "use_human_subjects": {
+                "name": "use_human_subjects",
+                "parent": "USE_HUMAN_SUBJECTS",
+                "child_type": "ORTHOGONAL",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "DURATION_OF_SAMPLING_EFFORTS",
+                    "ELIGIBILITY_SELECTION",
+                    "INCLUSION_AND_EXCLUSION",
+                    "PAYMENT_FOR_PARTICIPATION",
+                    "RECRUITMENT_PLAN"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            }
+        },
+        "systems": {
+            "ANALYST_BLINDING": {
+                "parent": "blinding",
+                "classes": {
+                    "analyst_blinding": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_analyst_blinding": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "BLINDING": {
+                "parent": "cos_prereg_v8_grm_root",
+                "classes": {
+                    "blinding": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_blinding": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "CENTERING": {
+                "parent": "transformation_plan",
+                "classes": {
+                    "centering_method": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_centering_method": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "CODING_CATEGORICAL_VARIABLES": {
+                "parent": "transformation_plan",
+                "classes": {
+                    "coding_method": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_coding_method": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "CONTRASTS": {
+                "parent": "specification_of_statistical_model",
+                "classes": {
+                    "contrasts_specification": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_contrasts_specification": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "COUNTERBALANCING": {
+                "parent": "cos_prereg_v8_grm_root",
+                "classes": {
+                    "no_statement_of_counterbalancing": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "statement_of_counterbalancing": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "COVARIATES": {
+                "parent": "measured_variables_definition",
+                "classes": {
+                    "covariates_definition": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_covariates_definition": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "CUTOFF_CRITERIA": {
+                "parent": "inference_criteria",
+                "classes": {
+                    "cutoff_criteria": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_cutoff_criteria": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "DATA_COLLECTION_PROCEDURE": {
+                "parent": "cos_prereg_v8_grm_root",
+                "classes": {
+                    "data_collection_procedure": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_data_collection_procedure": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "DIRECTIONALITY": {
+                "parent": "inference_criteria",
+                "classes": {
+                    "no_number_of_tails": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "number_of_tails": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "DIRECTIONALITY_OF_HYPOTHESES": {
+                "parent": "list_of_hypotheses",
+                "classes": {
+                    "list_of_hypotheses": {
+                        "probability": 0.33,
+                        "ui_order": "2",
+                        "visit_order": "2"
+                    },
+                    "no_statement_about_directionality_of_hypotheses": {
+                        "probability": 0.33,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "statement_about_directionality_of_hypotheses": {
+                        "probability": 0.33,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "DURATION_OF_SAMPLING_EFFORTS": {
+                "parent": "use_human_subjects",
+                "classes": {
+                    "duration_of_sampling_efforts": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_duration_of_sampling_efforts": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "ELIGIBILITY_SELECTION": {
+                "parent": "use_human_subjects",
+                "classes": {
+                    "eligibility_selection_criteria": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_eligibility_selection": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "EXPERIMENTER_BLINDING": {
+                "parent": "blinding",
+                "classes": {
+                    "experimenter_blinding": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_experimenter_blinding": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "EXPLANATION_OF_EXISTING_DATA": {
+                "parent": "no_data_collection_procedure",
+                "classes": {
+                    "explanation_of_existing_data": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_explanation_of_existing_data": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "INCLUSION_AND_EXCLUSION": {
+                "parent": "use_human_subjects",
+                "classes": {
+                    "inclusion_and_exclusion_procedure": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_inclusion_and_exclusion_procedure": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "INDICES": {
+                "parent": "measured_variables_definition",
+                "classes": {
+                    "no_plan_for_combining_indices": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "plan_for_combining_indices": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "INFERENCE_CRITERIA": {
+                "parent": "cos_prereg_v8_grm_root",
+                "classes": {
+                    "inference_criteria": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_inference_criteria": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "INTERACTIONS": {
+                "parent": "cos_prereg_v8_grm_root",
+                "classes": {
+                    "list_of_interactions": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_list_of_interactions": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "LEVEL_SIZE_RATIONALE": {
+                "parent": "statement_of_level_sizes",
+                "classes": {
+                    "level_size_rationale": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_level_size_rationale": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "MANIPULATED_VARIABLES": {
+                "parent": "cos_prereg_v8_grm_root",
+                "classes": {
+                    "manipulated_variables_definition": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_manipulated_variables_definition": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "MANIPULATION_CHECKS": {
+                "parent": "manipulated_variables_definition",
+                "classes": {
+                    "details_of_manipulation_checks": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_details_of_manipulation_checks": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "MEASURED_VARIABLES": {
+                "parent": "cos_prereg_v8_grm_root",
+                "classes": {
+                    "measured_variables_definition": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_measured_variables_definition": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "MULTIPLE_COMPARISONS": {
+                "parent": "inference_criteria",
+                "classes": {
+                    "multiple_comparisons_control_plan": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_multiple_comparisons_control_plan": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "NEGATIVE_CONTROLS": {
+                "parent": "specification_of_statistical_model",
+                "classes": {
+                    "no_specification_of_negative_controls": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "specification_of_negative_controls": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "PAYMENT_FOR_PARTICIPATION": {
+                "parent": "use_human_subjects",
+                "classes": {
+                    "no_plan_for_payment": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "plan_for_payment": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "POPULATION": {
+                "parent": "data_collection_procedure",
+                "classes": {
+                    "no_response_about_sample_population": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "response_about_sample_population": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "POSITIVE_CONTROLS": {
+                "parent": "specification_of_statistical_model",
+                "classes": {
+                    "definition_of_positive_controls": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_definition_of_positive_controls": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "POSTHOC": {
+                "parent": "specification_of_statistical_model",
+                "classes": {
+                    "posthoc_specification": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_posthoc_specification": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "PREDICTORS": {
+                "parent": "measured_variables_definition",
+                "classes": {
+                    "no_predictors_definition": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "predictors_definition": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "RANDOMIZATION_METHOD": {
+                "parent": "cos_prereg_v8_grm_root",
+                "classes": {
+                    "no_statement_of_randomization_method": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "statement_of_randomization_method": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "RECODING": {
+                "parent": "transformation_plan",
+                "classes": {
+                    "no_recoding_method": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "recoding_method": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "RECRUITMENT_PLAN": {
+                "parent": "use_human_subjects",
+                "classes": {
+                    "no_recruitment_plan": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "recruitment_plan": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "SAMPLE_COLLECTION": {
+                "parent": "data_collection_procedure",
+                "classes": {
+                    "no_sample_collection_procedure": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "sample_collection_procedure": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "SAMPLE_SIZE": {
+                "parent": "cos_prereg_v8_grm_root",
+                "classes": {
+                    "no_sample_size": {
+                        "probability": 0.33,
+                        "ui_order": "2",
+                        "visit_order": "2"
+                    },
+                    "statement_of_level_sizes": {
+                        "probability": 0.33,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "statement_of_overall_sample_size": {
+                        "probability": 0.33,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "SAMPLE_SIZE_RATIONALE": {
+                "parent": "statement_of_overall_sample_size",
+                "classes": {
+                    "no_sample_size_rationale": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "sample_size_rationale": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "SAMPLING_METHOD": {
+                "parent": "data_collection_procedure",
+                "classes": {
+                    "no_sampling_method": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "sampling_method": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "SOURCE_LOCATION_AND_BATCH_OF_SAMPLES": {
+                "parent": "data_collection_procedure",
+                "classes": {
+                    "no_source_location_and_batch_info": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "source_location_and_batch_info": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "STATISTICAL_MODELS": {
+                "parent": "cos_prereg_v8_grm_root",
+                "classes": {
+                    "no_specification_of_statistical_model": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "specification_of_statistical_model": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "STOPPING_RULE": {
+                "parent": "sampling_method",
+                "classes": {
+                    "no_stopping_rule": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "stopping_rule": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "SUBGROUP_ANALYSIS": {
+                "parent": "specification_of_statistical_model",
+                "classes": {
+                    "no_subgroup_analysis": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "subgroup_analysis": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "SUBJECT_BLINDING": {
+                "parent": "blinding",
+                "classes": {
+                    "no_subject_blinding": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "subject_blinding": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            },
+            "TRANSFORMATIONS": {
+                "parent": "specification_of_statistical_model",
+                "classes": {
+                    "no_transformation_plan": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "0"
+                    },
+                    "transformation_plan": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "USE_HUMAN_SUBJECTS": {
+                "parent": "data_collection_procedure",
+                "classes": {
+                    "no_use_human_subjects": {
+                        "probability": 0.01,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "use_human_subjects": {
+                        "probability": 0.99,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    }
+                }
+            }
+        },
+        "gates": {}
+    },
+    "contextual_stratum": {
+        "name": "CoS_prereg_v10_ctx",
+        "root_class": "cos_prereg_v8_ctx_root",
+        "namespace": "CoS_prereg_v10_ctx_ns::",
+        "roles": [
+            "StudyFeature"
+        ],
+        "type": "ctx_stratum",
+        "classes": {
+            "case-control": {
+                "name": "case-control",
+                "parent": "OBSERVATIONAL_DESIGN",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "cohort": {
+                "name": "cohort",
+                "parent": "OBSERVATIONAL_DESIGN",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "cos_prereg_v8_ctx_root": {
+                "name": "cos_prereg_v8_ctx_root",
+                "parent": "none",
+                "child_type": "ORTHOGONAL",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "DATA_ACCESS",
+                    "HUMAN_SUBJECTS",
+                    "HYPOTHESIS",
+                    "STUDY_TYPE"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "cos_prereg_v8_grm_root"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "cross_sectional": {
+                "name": "cross_sectional",
+                "parent": "OBSERVATIONAL_DESIGN",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "experimental": {
+                "name": "experimental",
+                "parent": "STUDY_TYPE",
+                "child_type": "EXCLUSIVE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "EXPERIMENTAL_DESIGN"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "factorial": {
+                "name": "factorial",
+                "parent": "EXPERIMENTAL_DESIGN",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "no_subgroup_analysis",
+							"no_definition_of_positive_controls",
+							"no_specification_of_negative_controls"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "has_apriori_hypothesis": {
+                "name": "has_apriori_hypothesis",
+                "parent": "HYPOTHESIS",
+                "child_type": "ORTHOGONAL",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "HAS_INTERACTIONS",
+                    "HAS_MULTIPLE_COMPARISONS",
+                    "HAS_PREDICTED_EFFECT",
+                    "IS_DIRECTIONAL"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "has_interactions": {
+                "name": "has_interactions",
+                "parent": "HAS_INTERACTIONS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "has_multiple_comparisons": {
+                "name": "has_multiple_comparisons",
+                "parent": "HAS_MULTIPLE_COMPARISONS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "has_no_apriori_hypothesis": {
+                "name": "has_no_apriori_hypothesis",
+                "parent": "HYPOTHESIS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "no_blinding",
+                            "no_data_collection_procedure",
+                            "no_manipulated_variables_definition",
+                            "no_measured_variables_definition",
+                            "no_sample_size",
+                            "no_specification_of_statistical_model",
+                            "no_statement_of_randomization_method"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "has_predicted_effect": {
+                "name": "has_predicted_effect",
+                "parent": "HAS_PREDICTED_EFFECT",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "human_subjects": {
+                "name": "human_subjects",
+                "parent": "HUMAN_SUBJECTS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "is_directional": {
+                "name": "is_directional",
+                "parent": "IS_DIRECTIONAL",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "meta-analysis": {
+                "name": "meta-analysis",
+                "parent": "STUDY_TYPE",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "no_blinding",
+                            "no_manipulated_variables_definition",
+                            "no_specification_of_statistical_model",
+                            "no_statement_of_counterbalancing",
+                            "no_statement_of_randomization_method"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_human_subjects": {
+                "name": "no_human_subjects",
+                "parent": "HUMAN_SUBJECTS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_interactions": {
+                "name": "no_interactions",
+                "parent": "HAS_INTERACTIONS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "no_list_of_interactions"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_is_directional": {
+                "name": "no_is_directional",
+                "parent": "IS_DIRECTIONAL",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "no_number_of_tails"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_multiple_comparisons": {
+                "name": "no_multiple_comparisons",
+                "parent": "HAS_MULTIPLE_COMPARISONS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "no_multiple_comparisons_control_plan"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "no_predicted_effect": {
+                "name": "no_predicted_effect",
+                "parent": "HAS_PREDICTED_EFFECT",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "no_predictors_definition"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "observational": {
+                "name": "observational",
+                "parent": "STUDY_TYPE",
+                "child_type": "EXCLUSIVE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [
+                    "OBSERVATIONAL_DESIGN"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+							"no_statement_of_counterbalancing",
+							"no_experimenter_blinding",
+							"no_subject_blinding",
+							"no_statement_of_randomization_method",
+							"no_manipulated_variables_definition",
+							"no_definition_of_positive_controls",
+							"no_specification_of_negative_controls"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "other": {
+                "name": "other",
+                "parent": "STUDY_TYPE",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "other_experimental_design": {
+                "name": "other_experimental_design",
+                "parent": "EXPERIMENTAL_DESIGN",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "no_sample_size"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "other_observational_design": {
+                "name": "other_observational_design",
+                "parent": "OBSERVATIONAL_DESIGN",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "no_sample_size"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "post-analysis": {
+                "name": "post-analysis",
+                "parent": "DATA_ACCESS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "no_blinding",
+                            "no_inference_criteria",
+                            "no_list_of_interactions"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "pre-access": {
+                "name": "pre-access",
+                "parent": "DATA_ACCESS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "pre-acquisition": {
+                "name": "pre-acquisition",
+                "parent": "DATA_ACCESS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "pre-analysis": {
+                "name": "pre-analysis",
+                "parent": "DATA_ACCESS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "pre-observation": {
+                "name": "pre-observation",
+                "parent": "DATA_ACCESS",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "explanation_of_existing_data"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "randomized_block": {
+                "name": "randomized_block",
+                "parent": "EXPERIMENTAL_DESIGN",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "repeated_measures": {
+                "name": "repeated_measures",
+                "parent": "EXPERIMENTAL_DESIGN",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "two_group": {
+                "name": "two_group",
+                "parent": "EXPERIMENTAL_DESIGN",
+                "child_type": "NONE",
+                "details": {},
+                "fc_notes": [],
+                "systems": [],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            }
+        },
+        "systems": {
+            "DATA_ACCESS": {
+                "parent": "cos_prereg_v8_ctx_root",
+                "classes": {
+                    "post-analysis": {
+                        "probability": 0.2,
+                        "ui_order": "4",
+                        "visit_order": "4"
+                    },
+                    "pre-access": {
+                        "probability": 0.2,
+                        "ui_order": "2",
+                        "visit_order": "2"
+                    },
+                    "pre-acquisition": {
+                        "probability": 0.2,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "pre-analysis": {
+                        "probability": 0.2,
+                        "ui_order": "3",
+                        "visit_order": "3"
+                    },
+                    "pre-observation": {
+                        "probability": 0.2,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "EXPERIMENTAL_DESIGN": {
+                "parent": "experimental",
+                "classes": {
+                    "factorial": {
+                        "probability": 0.2,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "other_experimental_design": {
+                        "probability": 0.2,
+                        "ui_order": "4",
+                        "visit_order": "4"
+                    },
+                    "randomized_block": {
+                        "probability": 0.2,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "repeated_measures": {
+                        "probability": 0.2,
+                        "ui_order": "2",
+                        "visit_order": "2"
+                    },
+                    "two_group": {
+                        "probability": 0.2,
+                        "ui_order": "3",
+                        "visit_order": "3"
+                    }
+                }
+            },
+            "HAS_INTERACTIONS": {
+                "parent": "has_apriori_hypothesis",
+                "classes": {
+                    "has_interactions": {
+                        "probability": 0.5,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_interactions": {
+                        "probability": 0.5,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "HAS_MULTIPLE_COMPARISONS": {
+                "parent": "has_apriori_hypothesis",
+                "classes": {
+                    "has_multiple_comparisons": {
+                        "probability": 0.5,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_multiple_comparisons": {
+                        "probability": 0.5,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "HAS_PREDICTED_EFFECT": {
+                "parent": "has_apriori_hypothesis",
+                "classes": {
+                    "has_predicted_effect": {
+                        "probability": 0.5,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_predicted_effect": {
+                        "probability": 0.5,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "HUMAN_SUBJECTS": {
+                "parent": "cos_prereg_v8_ctx_root",
+                "classes": {
+                    "human_subjects": {
+                        "probability": 0.5,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_human_subjects": {
+                        "probability": 0.5,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "HYPOTHESIS": {
+                "parent": "cos_prereg_v8_ctx_root",
+                "classes": {
+                    "has_apriori_hypothesis": {
+                        "probability": 0.5,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "has_no_apriori_hypothesis": {
+                        "probability": 0.5,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "IS_DIRECTIONAL": {
+                "parent": "has_apriori_hypothesis",
+                "classes": {
+                    "is_directional": {
+                        "probability": 0.5,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "no_is_directional": {
+                        "probability": 0.5,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    }
+                }
+            },
+            "OBSERVATIONAL_DESIGN": {
+                "parent": "observational",
+                "classes": {
+                    "case-control": {
+                        "probability": 0.25,
+                        "ui_order": "2",
+                        "visit_order": "2"
+                    },
+                    "cohort": {
+                        "probability": 0.25,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "cross_sectional": {
+                        "probability": 0.25,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "other_observational_design": {
+                        "probability": 0.25,
+                        "ui_order": "3",
+                        "visit_order": "3"
+                    }
+                }
+            },
+            "STUDY_TYPE": {
+                "parent": "cos_prereg_v8_ctx_root",
+                "classes": {
+                    "experimental": {
+                        "probability": 0.25,
+                        "ui_order": "0",
+                        "visit_order": "0"
+                    },
+                    "meta-analysis": {
+                        "probability": 0.25,
+                        "ui_order": "1",
+                        "visit_order": "1"
+                    },
+                    "observational": {
+                        "probability": 0.25,
+                        "ui_order": "2",
+                        "visit_order": "2"
+                    },
+                    "other": {
+                        "probability": 0.25,
+                        "ui_order": "3",
+                        "visit_order": "3"
+                    }
+                }
+            }
+        },
+        "gates": {
+            "access_and_apriori": {
+                "name": "access_and_apriori",
+                "type": "AND",
+                "details": {},
+                "fc_notes": [],
+                "entry_conditions": [
+                    "has_apriori_hypothesis",
+                    "preaccess_or_preanalysis"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "explanation_of_existing_data",
+                            "no_experimenter_blinding",
+                            "no_subject_blinding"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "exp_no_hyp": {
+                "name": "exp_no_hyp",
+                "type": "AND",
+                "details": {},
+                "fc_notes": [],
+                "entry_conditions": [
+                    "experimental",
+                    "has_no_apriori_hypothesis"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "no_explanation_of_existing_data",
+                            "no_inference_criteria",
+                            "no_list_of_interactions",
+                            "no_statement_of_counterbalancing"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "factorial_crosssectional": {
+                "name": "factorial_crosssectional",
+                "type": "OR",
+                "details": {},
+                "fc_notes": [],
+                "entry_conditions": [
+                    "cross_sectional",
+                    "factorial"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "no_subgroup_analysis"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "hum_nopreacq": {
+                "name": "hum_nopreacq",
+                "type": "AND",
+                "details": {},
+                "fc_notes": [],
+                "entry_conditions": [
+                    "no_human_subjects",
+                    "pre-acquisition"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "no_subject_blinding",
+                            "no_use_human_subjects",
+                            "response_about_sample_population",
+                            "source_location_and_batch_info",
+                            "stopping_rule"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "hum_preacq": {
+                "name": "hum_preacq",
+                "type": "AND",
+                "details": {},
+                "fc_notes": [],
+                "entry_conditions": [
+                    "human_subjects",
+                    "pre-acquisition"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "response_about_sample_population",
+                            "no_sample_collection_procedure",
+                            "sampling_method",
+                            "no_source_location_and_batch_info",
+                            "use_human_subjects"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "level_size": {
+                "name": "level_size",
+                "type": "AND",
+                "details": {},
+                "fc_notes": [],
+                "entry_conditions": [
+                    "has_apriori_hypothesis",
+                    "random_repeated_twogroup_cohort_casecontrol"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "level_size_rationale"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "obs_no_hyp": {
+                "name": "obs_no_hyp",
+                "type": "AND",
+                "details": {},
+                "fc_notes": [],
+                "entry_conditions": [
+                    "has_no_apriori_hypothesis",
+                    "observational"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "no_cutoff_criteria",
+                            "no_explanation_of_existing_data",
+                            "no_multiple_comparisons_control_plan",
+                            "no_statement_of_counterbalancing"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "post_hypo": {
+                "name": "post_hypo",
+                "type": "AND",
+                "details": {},
+                "fc_notes": [],
+                "entry_conditions": [
+                    "has_apriori_hypothesis",
+                    "post-analysis"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "explanation_of_existing_data"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "post_no_hyp": {
+                "name": "post_no_hyp",
+                "type": "AND",
+                "details": {},
+                "fc_notes": [],
+                "entry_conditions": [
+                    "has_no_apriori_hypothesis",
+                    "post-analysis"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "no_explanation_of_existing_data"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "preaccess_or_preanalysis": {
+                "name": "preaccess_or_preanalysis",
+                "type": "OR",
+                "details": {},
+                "fc_notes": [],
+                "entry_conditions": [
+                    "pre-access",
+                    "pre-analysis"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "random_repeated_twogroup_cohort_casecontrol": {
+                "name": "random_repeated_twogroup_cohort_casecontrol",
+                "type": "OR",
+                "details": {},
+                "fc_notes": [],
+                "entry_conditions": [
+                    "case-control",
+                    "cohort",
+                    "randomized_block",
+                    "repeated_measures",
+                    "two_group"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {},
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "sample_size": {
+                "name": "sample_size",
+                "type": "AND",
+                "details": {},
+                "fc_notes": [],
+                "entry_conditions": [
+                    "factorial_crosssectional",
+                    "has_apriori_hypothesis"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "sample_size_rationale"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            },
+            "twogroup_no_apriori": {
+                "name": "twogroup_no_apriori",
+                "type": "AND",
+                "details": {},
+                "fc_notes": [],
+                "entry_conditions": [
+                    "has_no_apriori_hypothesis",
+                    "two_group"
+                ],
+                "realization_rules": {
+                    "adjacency": {},
+                    "conflation": {},
+                    "expansion": {},
+                    "insertion": [],
+                    "lexification": {},
+                    "partition": {},
+                    "prerejection": {},
+                    "preselection": {
+                        "StudyFeature": [
+                            "no_sample_size"
+                        ]
+                    },
+                    "semselection": {},
+                    "unification": {}
+                }
+            }
+        }
+    },
+    "component_networks": {}
+}

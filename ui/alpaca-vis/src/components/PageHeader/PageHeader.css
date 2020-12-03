@@ -1,0 +1,42 @@
+.PageHeader {
+    padding: 10px;
+    background-color: #111;
+}
+.charles-river-logo {
+    background-image: url("./header.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: 50px;
+    float: left;
+    position: relative;
+}
+
+.header-icons {
+    background-image: url("./header-icons.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: 25%;
+    float: right;
+    position: relative;
+}
+
+.title-header {
+    font-size: 1.5vw;
+    padding: 15px;
+    height: 100%;
+    float: left;
+}
+
+.title-header-right {
+    font-size: .8vw;
+    padding: 15px;
+    height: 100%;
+    float: right;
+}
+
+#demo-button {
+    font-size: 14px !important;
+
+}

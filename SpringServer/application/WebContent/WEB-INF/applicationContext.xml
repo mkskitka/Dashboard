@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+  xmlns="http://www.springframework.org/schema/beans" 
+  xmlns:c="http://www.springframework.org/schema/c"
+  xmlns:context="http://www.springframework.org/schema/context"  
+  xmlns:mvc="http://www.springframework.org/schema/mvc"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:util="http://www.springframework.org/schema/util"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc     http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/tx      http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/util    http://www.springframework.org/schema/util/spring-util.xsd">
+
+  <context:annotation-config />
+
+  <mvc:annotation-driven validator="validator" >
+    <mvc:message-converters>
+      <ref bean="jsonConverter"/>
+      <ref bean="xmlConverter"/>
+    </mvc:message-converters>
+  </mvc:annotation-driven>
+
+  <bean id="validator" class="com.cra.springserver.web.dto.validate.AnnotationValidator"/>
+
+  <!-- Creates a message source which allows for message localization to occur as necessary. -->
+  <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+    <property name="basename" value="classpath:/messages" />
+    <property name="defaultEncoding" value="UTF-8" />
+  </bean>
+
+  <!-- Forwards requests for static resources to the default servlet. This handler must appear after 
+    all other handler definitions in order to avoid masking them. -->
+  <mvc:default-servlet-handler />
+
+  <!-- These packages will be scanned for classes annotated with service provider steriotypes: @Component, 
+    @Repository, @Service, @Controller, @RestController, @ControllerAdvice, and @Configuration Classes with 
+    these annotations will be autmatically instantiated and be @Autowired as appropriate. You may customize 
+    the packages to scan by adding comma or whitespace-delimited entries to base-package -->
+  <context:component-scan base-package="com.cra.springserver" />
+
+  <!-- Hibernate ORM configuration -->
+  <!--  Comment out from here if don't use DB -->
+  <!-- Wraps the SessionFactory in a pre-built transaction manager. -->
+ <!--  
+  <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+    <property name="sessionFactory" ref="sessionFactory" />
+    <property name="dataSource" ref="dataSource" />
+  </bean>
+
+  <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+
+  <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+  
+    <property name="dataSource" ref="dataSource"/>
+    
+    <property name="hibernateProperties">
+      <props>
+        <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+        <prop key="hibernate.show_sql">false</prop>
+        <prop key="hibernate.format_sql">true</prop>
+        <prop key="use_sql_comments">true</prop>
+        <prop key="hibernate.generate_statistics">false</prop>
+        <prop key="hibernate.query.substitutions">true 1, false 0</prop>
+        <prop key="hibernate.pool_size">0</prop>
+        <prop key="hibernate.max_fetch_depth">0</prop>
+-->        
+        <!--  Uncomment to enable caching.  You must also uncomment the hibernate-ehcache dependency in ivy.xml as well. -->
+        <!-- <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</prop> -->
+        
+<!--  
+        <prop key="hibernate.cache.use_query_cache">false</prop>
+        <prop key="hibernate.cache.use_second_level_cache">false</prop>        
+      </props>
+    </property>
+    <property name="packagesToScan">
+      <list>
+-->      
+        <!-- customize this to contain only those packages where you've placed hibernate models -->
+<!--  
+        <value>com.cra</value>
+      </list>
+    </property>
+  </bean>
+-->
+  <!-- End of comment out sections -->
+
+  <!-- ===================================================================== -->
+  <!-- This section sets up the MVC MessageConverters. These beans convert POST and PUT payloads into 
+    model objects and model objects into returned results. -->
+  <!-- ===================================================================== --> 
+
+  <!-- The JAXB marshalar is in charge of serializing and deserializing objects containing JAXB annotations. Customize 
+  packagesToScan to contain the packages where you store REST data transfer objects (DTOs) -->
+  <bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+    <property name="packagesToScan">
+      <list>
+        <value>com.cra.springserver.web.dto</value>
+      </list>
+    </property>
+  </bean>
+
+  <bean id="xmlConverter" class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
+    <constructor-arg>
+      <ref bean="jaxbMarshaller" />
+    </constructor-arg>
+    <property name="supportedMediaTypes">
+      <list>
+        <bean class="org.springframework.http.MediaType">
+          <constructor-arg index="0" value="application" />
+          <constructor-arg index="1" value="xml" />
+          <constructor-arg index="2" value="UTF-8" />
+        </bean>
+      </list>
+    </property>
+  </bean>
+
+  <bean id="typeFactory" class="com.fasterxml.jackson.databind.type.TypeFactory"
+    factory-method="defaultInstance" />
+
+  <!-- This sets up a JAXB-based annotation introspector that causes Jackson converter to defer to JAXB for serializing and 
+    deserializing  if the object is registered with JAXB. In order for this to work, it appears that the object must have been 
+    previously scanned in the jaxbMarshaller bean above. -->
+  <bean id="annotationIntrospector" class="com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector">
+    <constructor-arg ref="typeFactory" />
+  </bean>
+
+  <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+    <constructor-arg>
+      <bean class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean"
+        p:annotationIntrospector-ref="annotationIntrospector" p:autoDetectFields="false"
+        p:autoDetectGettersSetters="false" />
+    </constructor-arg>
+    <property name="supportedMediaTypes">
+      <list>
+        <bean class="org.springframework.http.MediaType">
+          <constructor-arg index="0" value="application" />
+          <constructor-arg index="1" value="json" />
+          <constructor-arg index="2" value="UTF-8" />
+        </bean>
+      </list>
+    </property>
+  </bean>
+
+</beans>

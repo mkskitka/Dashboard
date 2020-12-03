@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This context file declares basic JDBC resources used mainly by the testing process. This file provides 
+  alternatives to those accessed by JNDI when JNDI is not accessible. -->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <!-- A basic datasource for use by Hibernate. -->
+  <!-- 
+  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+    <property name="driverClass" value="org.postgresql.Driver" />
+    <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/springboard?user=springboard&amp;password=springboard" />
+    <property name="initialPoolSize" value="10" />
+    <property name="maxPoolSize" value="20" />
+    <property name="minPoolSize" value="5" />
+    <property name="maxIdleTime" value="90" />
+    <property name="numHelperThreads" value="20" />
+    <property name="maxStatements" value="500" />
+    <property name="unreturnedConnectionTimeout" value="3600" />
+  </bean>
+   -->
+</beans>

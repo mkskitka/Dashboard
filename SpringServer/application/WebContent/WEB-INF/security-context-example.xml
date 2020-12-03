@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+  xmlns="http://www.springframework.org/schema/beans" 
+  xmlns:c="http://www.springframework.org/schema/c"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:sec="http://www.springframework.org/schema/security"
+  xmlns:util="http://www.springframework.org/schema/util" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/security  http://www.springframework.org/schema/security/spring-security.xsd  
+    http://www.springframework.org/schema/beans     http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/util      http://www.springframework.org/schema/util/spring-util.xsd">
+
+  <!-- This is a very bare bones Spring security context file that requires a 
+       username/password to access the web application.  This configuration 
+       defines two level of privilege: USER and ADMIN.  Usernames and passwords
+       are defined inline in this file.  In a real application users would be
+       retrieved from a database or external authentication authority such as a
+       PKI infrastructure or ActiveDirectory/LDAP.
+       
+       The security context defined in this file is invoked via the 
+       springSecurityFilterChain defined in web.xml -->
+
+  <sec:http>
+    <!-- use HTTP BASIC AUTH (i.e. no login form, browser just pops up a modal dialog) -->
+    <sec:http-basic/>
+    
+    <!-- Any request that matches one of the intercept-url rules below will have
+         this security configuration applied to it.  Note that order matters and
+         the first rule that is matched will be the one that is applied.  
+         Therefore more general rules should be defined later. -->
+    
+    <!-- Only admins can access the /admin namespace.  Not that no actual /admin
+         endpoints are provided in this example -->
+    <sec:intercept-url pattern="/admin/**" access="hasRole('ROLE_USER')"/>         
+
+    <!-- default policy is all access points require user authentication -->
+    <sec:intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
+  </sec:http>
+
+  <!-- Declares a BCrypt encoder to use to encode user passwords. -->  
+  <bean name="bcryptEncoder" 
+    class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"
+    c:strength="10"/>
+
+  <sec:authentication-manager>
+    <sec:authentication-provider>
+      <sec:password-encoder ref="bcryptEncoder"/>
+      <sec:user-service>
+        <!-- passwords below are all 123456 bcrypted at strength 10-->
+        <sec:user name="test"       authorities="ROLE_USER"         
+          password="$2a$10$18RJsVx02iX5CELfzLTsmuKxv55VLuZCwj5tJulJzG.e5kAw3Czj6"/>
+        <sec:user name="test_admin" authorities="ROLE_USER,ROLE_ADMIN" 
+          password="$2a$10$Tv0UKkDByF/h1gkj3B2t3uYy4eimI.zVG6Kq7N32f7gjrRg3BgxTW"/>        
+      </sec:user-service>
+    </sec:authentication-provider>
+  </sec:authentication-manager>
+</beans>    

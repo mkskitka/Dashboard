@@ -1,0 +1,73 @@
+.alert-description {
+    text-align: left !important;
+    background-color: #333;
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+}
+.linebreak {
+    width: 100%;
+    height: 30px;
+}
+.alert-heading {
+    width: 80%;
+    height: 50px !important;
+    float: left;
+    position: relative;
+}
+
+.alert-dropdown-icon {
+    float: left !important;
+    width: 15% !important;
+    position: relative;
+}
+
+.alert-button {
+
+}
+#dismiss-button {
+    float: right;
+    top: -5px;
+    left: 15px;
+    position: relative;
+    opacity: .7;
+}
+
+#comment-button {
+    margin: 20px;
+}
+.alert-button-container {
+    margin-bottom: 10px;
+}
+.alert-container {
+    background-color: #111;
+    margin-top: 10px;
+    text-align: left;
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+}
+
+.alert-metric-label {
+    margin-top: 20px;
+}
+
+.alert-metric-value {
+    margin-bottom: 20px;
+}
+
+.alert-numerics{
+    float: left;
+    width: 30%;
+    height: 100px;
+}
+.alert-metric-linegraph {
+    width: 68%;
+    height: 80px;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom:20px;
+    left: -50px;
+    float: left;
+}

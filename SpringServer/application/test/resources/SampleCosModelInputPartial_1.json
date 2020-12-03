@@ -1,0 +1,13 @@
+{
+	"STUDY_TYPE": "experimental",
+	"EXPERIMENTAL_DESIGN": "factorial",
+	"HUMAN_SUBJECTS": true,
+	"HYPOTHESIS": true,
+	"HAS_PREDICTED_EFFECT": true,
+	"HAS_INTERACTIONS": true,
+	"observations": [
+		"analyst_blinding",
+		"data_collection_procedure",
+		"inference_criteria"
+	]
+}

@@ -1,0 +1,5 @@
+/*
+ *  Constants
+ */
+export const ADD_CLUSTER_GRAPH_DATA = "ADD_CLUSTER_GRAPH_DATA";
+export const UPDATE_SELECTED_CLUSTERS = "UPDATE_SELECTED_CLUSTERS";

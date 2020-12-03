@@ -22,20 +22,39 @@ transform: rotate(-90deg);
 }
 
 .Accordion-Content {
-     height: 800px !important;
+     height: 90% !important;
      position: relative !important;
+      overflow-y: scroll !important;
 }
 
 .Accordion {
     position: relative !important;
-    max-height: 100% !important;
-
+    height: 100% !important;
+    width: 100% !important;
 
 }
 .Segment {
     height: 100%;
-    position: relative;
+    position: relative !important;
+
 }
 
 .variance-table {
+}
+
+.cluster-sprite {
+    float: left; 
+    position: relative;
+    width: 96px;
+    height: 60px;
+}
+
+.sprites-wrapper {
+    width: 295px;
+    display: inline-block;
+}
+
+.cluster-intra-summary {
+    position: "relative";
+    float: left;
 }

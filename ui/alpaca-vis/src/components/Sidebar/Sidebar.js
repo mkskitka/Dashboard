@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FileUtils } from '../../utils/file-utils';
 import { useSelector } from 'react-redux';
 import './Sidebar.css';
-import { Segment, Accordion, Icon, Table, Header } from 'semantic-ui-react';
+import { Segment, Accordion, Icon, Table, Header, button } from 'semantic-ui-react';
 import Alerts from "../Alerts/Alerts";
 import { DataUtils } from '../../utils/data-process'
 import { CLUSTER_COLORS } from '../../constants/constants';
@@ -10,9 +10,11 @@ import { create, all } from 'mathjs'
 import { AreaChart, XAxis, YAxis, CartesianGrid, Tooltip, Area, Label } from 'recharts';
 import { kernelDensityEstimator, kernelEpanechnikov, Ticks, calculateDensities, calulateMin, calulateMax, mergeDatasets} from '../../utils/density';
 import $ from 'jquery';
+import sprites from '../sprites';
 var _ = require('lodash');
 
-
+const THUMBNAIL_H = 60;
+const THUMBNAIL_W = 96;
 
 const config = { }
 const math = create(all, config)
@@ -83,10 +85,14 @@ function Sidebar() {
     return content
   }
 
+  function clusterCircleIcon(key) {
+      return(<div style={{backgroundColor: CLUSTER_COLORS[key], width: "15px", height: "15px", borderRadius: "10px", display: "inline-block"}}> </div>);
+  }
+
     function ClusterIcon(key)  {
       return( <Header>
         <Header.Content>
-          <div style={{backgroundColor: CLUSTER_COLORS[key], width: "15px", height: "15px", borderRadius: "10px", display: "inline-block"}}> </div>
+         {clusterCircleIcon(key)}
         </Header.Content>
         </Header>
       )
@@ -178,6 +184,37 @@ function Sidebar() {
         return content;
     }
 
+    function SpriteImages(cluster_data, x) {
+        let content = []
+        for (let rows = 0; rows < x; rows++) {
+            for (let cols = 0; cols < x; cols++) {
+                const random_datapoint = cluster_data[Math.floor(Math.random() * cluster_data.length)];
+                const image_id = random_datapoint.img_id  
+                const image_offset = -(image_id * THUMBNAIL_H)
+                let sprite_id = random_datapoint.path.split("01-01-")[1]
+                sprite_id = sprite_id.replace(/\s+/g, '')
+                let sprite_img = sprites[sprite_id]
+                content.push(
+                    <div className="cluster-sprite" style={{backgroundPosition: "0px " + image_offset+"px", backgroundImage: "url("+sprite_img+")"}} />
+			    )
+		    }
+	    }
+        return content;
+	}
+
+    function clustersummary(x, y) {
+        let selected_cluster_labels = DataUtils.getClusterLabels(selected_clusters)
+        let content = [];
+        for (const [key, value] of Object.entries(selected_clusters)) {
+            const cluster_data = DataUtils.getCluster(data, parseInt(key));
+            if(cluster_data.length > 0) {
+                content.push(<div className="cluster-intra-summary"><div style={{width: '100%', height: '50px', float: "left"}}>{clusterCircleIcon(key)}</div>
+                <div className="sprites-wrapper" style={{borderStyle: "solid", borderColor: CLUSTER_COLORS[key]}}>{SpriteImages(cluster_data, x)}</div> </div>);
+            }
+		}
+        return content;
+	}
+
 
   return (
 
@@ -207,8 +244,8 @@ function Sidebar() {
                     <div>
                         <div>Variance of % Segmentation By Category Across Clusters</div>
                         <div className="variance-table" style={{fontSize: "13px",
-                            paddingRight: "50px", paddingTop: "20px"}}>{VarianceTable()}</div>
-                      </div>
+                            paddingRight: "0px", paddingTop: "20px"}}>{VarianceTable()}</div>
+                    </div>
                 </Accordion.Content>
             </Accordion>
            </Segment>
@@ -217,7 +254,7 @@ function Sidebar() {
      *                          Intra-Cluster Analysis  
      *
      /*************************************************************************/}
-           <Segment className="Segment" inverted style={(active_index[0]) ? { height: '100%' } : { height: "100px"}}>
+           <Segment className="Segment" inverted style={(active_index[1]) ? { height: '82%' } : { height: "100px"}}>
                 <Accordion inverted className="Accordion">
                     <Accordion.Title
                       className="Accordion-Title"
@@ -229,6 +266,8 @@ function Sidebar() {
                       Intra-Cluster Summary Analysis
                     </Accordion.Title>
                     <Accordion.Content active={active_index[1]} className="Accordion-Content">
+                        <div style={{height: "50px"}}>3 x 3 Cluster Summaries <div style={{paddingLeft: "20px", display: "inline-block"}} ><button onClick={() => setRerender(!rerender)}>refresh</button></div></div>
+                            {<div className="">{clustersummary(3, 3)}</div>}
                     </Accordion.Content>
             </Accordion>
            </Segment>
@@ -237,7 +276,7 @@ function Sidebar() {
      *                          Single Point Analysis  
      *
      /*************************************************************************/}
-           <Segment className="Segment" inverted style={(active_index[0]) ? { height: '100%' } : { height: "100px"}}>
+           <Segment className="Segment" inverted style={(active_index[2]) ? { height: '50%' } : { height: "100px"}}>
                 <Accordion inverted className="Accordion">
                     <Accordion.Title
                       className="Accordion-Title"

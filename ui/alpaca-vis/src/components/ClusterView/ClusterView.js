@@ -9,7 +9,8 @@ import { ScatterChart, CartesianGrid, Scatter, ZAxis, XAxis, YAxis, ResponsiveCo
  Tooltip, Legend } from 'recharts';
 import sprites from '../sprites';
 
- let THUMBNAIL_H = (32400/ 540);
+ const THUMBNAIL_H = 60;
+ const THUMBNAIL_W = 96;
 
 
 const legend_checkbox_style = {

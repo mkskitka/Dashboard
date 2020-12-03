@@ -7,8 +7,7 @@ import { Breadcrumb, Button, Icon, Popup, Checkbox } from 'semantic-ui-react';
 import { CLUSTER_COLORS } from '../../constants/constants';
 import { ScatterChart, CartesianGrid, Scatter, ZAxis, XAxis, YAxis, ResponsiveContainer,
  Tooltip, Legend } from 'recharts';
-
-// import sprite from './sprites/00-00-00_.png'
+import sprites from '../sprites';
 
  let THUMBNAIL_H = (32400/ 540);
 
@@ -72,14 +71,14 @@ const CustomTooltip = ({ active, payload, label }) => {
 
     let sprite_id = payload[0].payload.path.split("01-01-")[1]
     sprite_id = sprite_id.replace(/\s+/g, '')
-    let sprite_img = "url('./sprites/" + sprite_id + ".png')";
+    let sprite_img = sprites[sprite_id]
     console.log("sprite image: ", sprite_img)
     console.log(image_offset)
     return (
       <div className="custom-tooltip">
         {/*<p className="label">{`${label} : ${payload[0].value}`}</p>*/}
         <div style={{borderColor: CLUSTER_COLORS[payload[0].payload.cluster], borderWeight: '1px',
-         backgroundPosition:  "0px " + image_offset+"px"}} className="node_image"/>
+         backgroundPosition:  "0px " + image_offset+"px" , backgroundImage: "url("+sprite_img+")"}} className="node_image" />
         <div>{"Path: " + payload[0].payload.path + "/" + payload[0].payload.image}</div>
         <div>{"% Close: " + payload[0].payload.implicit_vars.percent_close.toFixed(2)}</div>
         <div>{"% Sky: " + payload[0].payload.implicit_vars.percent_sky.toFixed(2)}</div>

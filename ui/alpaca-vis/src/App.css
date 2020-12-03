@@ -14,17 +14,13 @@
   overflow: hidden;
 }
 
-.App > .PageHeader {
-  grid-area: 1/1/6/end;
-  border-radius: 5px;
-}
 .App > .Sidebar {
-  grid-area: 6/30/60/end;
+  grid-area: 1/27/60/end;
   border-radius: 5px;
   overflow: hidden;
 }
 .App > .ClusterView {
-  grid-area: 6/1/60/30;
+  grid-area: 1/1/60/27;
   border-radius: 5px;
   overflow: hidden;
 }

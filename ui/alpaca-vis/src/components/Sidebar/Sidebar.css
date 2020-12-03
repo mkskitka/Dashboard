@@ -1,20 +1,16 @@
 .Sidebar {
     background-color: #111;
     position: relative;
-
 }
 .sidebar-content {
-    overflow: scroll !important;
     height: 95%;
     width: 100%;
 }
 .variance-table {
 }
 .density-plots {
-
 }
 .density-plot {
-
 }
 
 .density_label {
@@ -28,17 +24,19 @@ transform: rotate(-90deg);
 .Accordion-Content {
      height: 800px !important;
      position: relative !important;
-     overflow: scroll !important;
-
 }
 
 .Accordion {
     position: relative !important;
     max-height: 100% !important;
+    overflow-y: scroll !important;
 
 
 }
 .Segment {
     height: 100%;
     position: relative;
+}
+
+.variance-table {
 }

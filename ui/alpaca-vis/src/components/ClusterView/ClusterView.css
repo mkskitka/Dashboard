@@ -12,7 +12,7 @@
 }
 
 .node_image {
-    background-image: url("./sprites/00-00-00_.png");
+    background-image: url("../sprites/00-00-00_.png");
     background-position: 0 0;
     background-repeat: no-repeat;
     opacity: 1 !important;

@@ -8,6 +8,7 @@ import { DataUtils } from '../../utils/data-process'
 import { CLUSTER_COLORS } from '../../constants/constants';
 import { create, all } from 'mathjs'
 import { AreaChart, XAxis, YAxis, CartesianGrid, Tooltip, Area, Label } from 'recharts';
+import { kernelDensityEstimator, kernelEpanechnikov, Ticks, calculateDensities, calulateMin, calulateMax, mergeDatasets} from '../../utils/density';
 import $ from 'jquery';
 var _ = require('lodash');
 
@@ -17,12 +18,14 @@ const config = { }
 const math = create(all, config)
 const density_height = 150;
 const num_ticks = 40;
-const BANDWIDTH = 1;
+
 
 var linearScale = require('simple-linear-scale');
 
 const segmentation_vars = ["Bushes", "Cars", "Curb_Wall", "Fence", "Ground", "House", "Road", "Sign", "Sky", "Tree", "?" ]
 const implicit_vars = ["percent_dark", "percent_ground", "percent_saturated", "percent_close", "percent_sky"]
+
+
 const vars_labels = {
     "percent_dark": "% Dark",
     "percent_ground": "% Ground",
@@ -51,10 +54,12 @@ function Sidebar() {
 
   // Component Did Mount
   useEffect(() => {
+
   }, [selected_clusters]);
+
   useEffect(() => {
-    let density_width_new = $(".Sidebar").width() - 100
-    setDensityWidth(density_width_new)
+        let density_width_new = $(".Sidebar").width() - 100
+        setDensityWidth(density_width_new)
   }, [density_width])
   useEffect(() => {
     $(".Accordion-Content").height($(".Sidebar").height())
@@ -83,7 +88,8 @@ function Sidebar() {
         <Header.Content>
           <div style={{backgroundColor: CLUSTER_COLORS[key], width: "15px", height: "15px", borderRadius: "10px", display: "inline-block"}}> </div>
         </Header.Content>
-      </Header>)
+        </Header>
+      )
     }
 
   function TableColumns(key, data) {
@@ -150,51 +156,6 @@ function Sidebar() {
         return content;
     }
 
-    function calculateDensities(dataset, ticks) {
-        let newDataset = []
-        for (const [key, value] of Object.entries(dataset)) {
-            var kde = kernelDensityEstimator(kernelEpanechnikov(BANDWIDTH), ticks)
-            var density =  kde(value) // Y values
-            density = density.map(function(d) {let obj={}; obj[key] = d[1]; return obj})
-            newDataset.push(density)
-        }
-        return newDataset
-    }
-    function calulateMin(dataset) {
-       let mins = []
-        for (const [key, value] of Object.entries(dataset)) {
-            mins.push(Math.min(...value))
-        }
-        return Math.min(...mins)
-    }
-    function calulateMax(dataset) {
-       let maxes = []
-        for (const [key, value] of Object.entries(dataset)) {
-            maxes.push(Math.max(...value))
-        }
-        return Math.max(...maxes)
-    }
-    function mergeDatasets(dataset, ticks) {
-        let newDataset = []
-        for(let x=0; x<ticks.length; x++) {
-            newDataset[x] = {}
-            for(let i=0; i<dataset.length; i++) {
-                newDataset[x] = {
-                    ...newDataset[x],
-                    ...dataset[i][x]
-                }
-            }
-            newDataset[x].x = ticks[x]
-        }
-        newDataset = _.filter(newDataset, function(d) {
-            let filtered = _.pickBy(d, function(value, key) {   return value !== 0;});
-            if(Object.keys(filtered).length > 1){
-                return true;
-            }
-            return false
-        })
-        return newDataset
-    }
     function AreaGradients(dataset) {
         let content = []
        for (const [key, value] of Object.entries(selected_clusters)) {
@@ -207,6 +168,7 @@ function Sidebar() {
        }
        return content;
     }
+
     function AreaLines(dataset) {
         let content = []
         for (const [key, value] of Object.entries(selected_clusters)) {
@@ -216,35 +178,19 @@ function Sidebar() {
         return content;
     }
 
-    // Function to compute density
-    function kernelDensityEstimator(kernel, X) {
-      return function(V) {
-        return X.map(function(x) {
-          return [x, math.mean( V.map(function(v) { return kernel(x - v); }))];
-        });
-      };
-    }
-    function kernelEpanechnikov(k) {
-      return function(v) {
-        return Math.abs(v /= k) <= 1 ? 0.75 * (1 - v * v) / k : 0;
-      };
-    }
-    // Function gets the scaled x values based on the number of ticks you want
-    function Ticks(k, x_range, xScale) {
-        let segment = x_range/k;
-        let ticks = []
-        for(let i=1; i<=k; i++){
-            ticks.push(i*segment)
-        }
-        return ticks;
-    }
 
   return (
 
     <div className="Sidebar">
         <div style={{ width: '100%', height: "100%", position: "relative", textAlign:"Left",
                 fontSize: "24px", padding: "10px"}}>
-          <Segment className="Segment" inverted>
+
+     {/***************************************************************************
+     *
+     *                          Cross-Cluster Analysis  
+     *
+     /*************************************************************************/}
+          <Segment className="Segment" inverted style={(active_index[0]) ? { height: '100%' } : { height: "100px"}} >
             <Accordion inverted className="Accordion">
                 <Accordion.Title
                   className="Accordion-Title"
@@ -260,24 +206,50 @@ function Sidebar() {
                     <div className="density-plots">{DensityPlots()}</div>
                     <div>
                         <div>Variance of % Segmentation By Category Across Clusters</div>
-                        <div className="variance-table" style={{fontSize: "13px", paddingLeft: "50px",
+                        <div className="variance-table" style={{fontSize: "13px",
                             paddingRight: "50px", paddingTop: "20px"}}>{VarianceTable()}</div>
                       </div>
                 </Accordion.Content>
             </Accordion>
-            <Accordion inverted className="Accordion">
-                <Accordion.Title
-                  className="Accordion-Title"
-                  active={active_index[1]}
-                  index={1}
-                  onClick={() => setActiveIndex(Object.assign({}, active_index, { 1: !(active_index[1]) }))}
-                >
-                  <Icon name='dropdown' />
-                  Intra-Cluster Summary Analysis
-                </Accordion.Title>
-                <Accordion.Content active={active_index[1]} className="Accordion-Content">
-
-                </Accordion.Content>
+           </Segment>
+    {/***************************************************************************
+     *
+     *                          Intra-Cluster Analysis  
+     *
+     /*************************************************************************/}
+           <Segment className="Segment" inverted style={(active_index[0]) ? { height: '100%' } : { height: "100px"}}>
+                <Accordion inverted className="Accordion">
+                    <Accordion.Title
+                      className="Accordion-Title"
+                      active={active_index[1]}
+                      index={1}
+                      onClick={() => setActiveIndex(Object.assign({}, active_index, { 1: !(active_index[1]) }))}
+                    >
+                    <Icon name='dropdown' />
+                      Intra-Cluster Summary Analysis
+                    </Accordion.Title>
+                    <Accordion.Content active={active_index[1]} className="Accordion-Content">
+                    </Accordion.Content>
+            </Accordion>
+           </Segment>
+    {/***************************************************************************
+     *
+     *                          Single Point Analysis  
+     *
+     /*************************************************************************/}
+           <Segment className="Segment" inverted style={(active_index[0]) ? { height: '100%' } : { height: "100px"}}>
+                <Accordion inverted className="Accordion">
+                    <Accordion.Title
+                      className="Accordion-Title"
+                      active={active_index[2]}
+                      index={1}
+                      onClick={() => setActiveIndex(Object.assign({}, active_index, { 2: !(active_index[2]) }))}
+                    >
+                    <Icon name='dropdown' />
+                      Single Point View
+                    </Accordion.Title>
+                    <Accordion.Content active={active_index[1]} className="Accordion-Content">
+                    </Accordion.Content>
             </Accordion>
            </Segment>
         </div>

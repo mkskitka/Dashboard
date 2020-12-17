@@ -21,7 +21,6 @@ const math = create(all, config)
 const density_height = 150;
 const num_ticks = 40;
 
-
 var linearScale = require('simple-linear-scale');
 
 const segmentation_vars = ["Bushes", "Cars", "Curb_Wall", "Fence", "Ground", "House", "Road", "Sign", "Sky", "Tree", "?" ]
@@ -44,90 +43,82 @@ const x_axis_style = {
 }
 function Sidebar() {
 
-  const data = useSelector(state => state.cluster_graph_data)
-  const selected_clusters = _.pickBy(useSelector(state => state.selected_clusters), function(value, key) {
-      return value;
-    });
-  const cluster_labels = DataUtils.getClusterLabels(data)
-  const [rerender, setRerender] = useState(true);
-  const [density_width, setDensityWidth] = useState(500);
-  const [active_index, setActiveIndex] = useState({0: true, 1: false});
+    const data = useSelector(state => state.cluster_graph_data)
+    const selected_clusters = _.pickBy(useSelector(state => state.selected_clusters), function(value, key) { return value; });
+    const cluster_labels = DataUtils.getClusterLabels(data)
+    const [rerender, setRerender] = useState(true);
+    const [density_width, setDensityWidth] = useState(500);
+    const [active_index, setActiveIndex] = useState({0: true, 1: false});
 
-
-  // Component Did Mount
-  useEffect(() => {
-
-  }, [selected_clusters]);
-
-  useEffect(() => {
+    useEffect(() => {
         let density_width_new = $(".Sidebar").width() - 100
         setDensityWidth(density_width_new)
-  }, [density_width])
-  useEffect(() => {
-    $(".Accordion-Content").height($(".Sidebar").height())
-  }, [])
+        }, [density_width])
+        useEffect(() => {
+        $(".Accordion-Content").height($(".Sidebar").height())
+    }, [])
 
-  function TableHeader(vars) {
+    function TableHeader(vars) {
         let content = []
         content.push(<Table.HeaderCell>{"Cluster"}</Table.HeaderCell>)
         for(let i=0; i< vars.length; i++) {
             content.push(<Table.HeaderCell>{vars[i]}</Table.HeaderCell>)
         }
         return content;
-  }
-
-  function TableBody() {
-    let content = []
-    for (const [key, value] of Object.entries(selected_clusters)) {
-        let cluster_data = DataUtils.getCluster(data, parseInt(key));
-        content.push(<Table.Row>{TableColumns(key, cluster_data)}</Table.Row>);
     }
-    return content
-  }
 
-  function clusterCircleIcon(key) {
-      return(<div style={{backgroundColor: CLUSTER_COLORS[key], width: "15px", height: "15px", borderRadius: "10px", display: "inline-block"}}> </div>);
-  }
+    function TableBody() {
+        let content = []
+        for (const [key, value] of Object.entries(selected_clusters)) {
+            let cluster_data = DataUtils.getCluster(data, parseInt(key));
+            content.push(<Table.Row>{TableColumns(key, cluster_data)}</Table.Row>);
+        }
+        return content
+    }
+
+    function clusterCircleIcon(key) {
+        return(<div style={{backgroundColor: CLUSTER_COLORS[key], width: "15px", height: "15px", borderRadius: "10px", display: "inline-block"}}> </div>);
+    }
 
     function ClusterIcon(key)  {
-      return( <Header>
-        <Header.Content>
-         {clusterCircleIcon(key)}
-        </Header.Content>
-        </Header>
-      )
-    }
-
-  function TableColumns(key, data) {
-    let content = []
-    if(data.length > 0) {
-        content.push(
-        <Table.Cell>{
-            ClusterIcon(key)
-            }</Table.Cell>
+        return( <Header>
+            <Header.Content>
+                {clusterCircleIcon(key)}
+            </Header.Content>
+            </Header>
         )
-        for(let i=0; i<segmentation_vars.length; i++) {
-            let value_arr = data.map(function(obj) { return obj.implicit_vars.percent_segmentation[segmentation_vars[i]]});
-            value_arr = value_arr.filter(function(x) { return x !== undefined})
-            content.push(<Table.Cell>{DataUtils.variance(value_arr).toFixed(2)}</Table.Cell>)
-        }
     }
-    return content;
-  }
 
-  function VarianceTable() {
-    let content = []
-    content.push(
-         <Table celled inverted >
-            <Table.Header>
-                {TableHeader(segmentation_vars)}
-             </Table.Header>
-             <Table.Body>
-                {TableBody()}
-             </Table.Body>
-        </Table>)
-    return content;
-   }
+    function TableColumns(key, data) {
+        let content = []
+        if(data.length > 0) {
+            content.push(
+            <Table.Cell>{
+                ClusterIcon(key)
+                }</Table.Cell>
+            )
+            for(let i=0; i<segmentation_vars.length; i++) {
+                let value_arr = data.map(function(obj) { return obj.implicit_vars.percent_segmentation[segmentation_vars[i]]});
+                value_arr = value_arr.filter(function(x) { return x !== undefined})
+                content.push(<Table.Cell>{DataUtils.variance(value_arr).toFixed(2)}</Table.Cell>)
+            }
+        }
+        return content;
+    }
+
+    function VarianceTable() {
+        let content = []
+        content.push(
+                <Table celled inverted >
+                <Table.Header>
+                    {TableHeader(segmentation_vars)}
+                    </Table.Header>
+                    <Table.Body>
+                    {TableBody()}
+                    </Table.Body>
+            </Table>)
+        return content;
+    }
 
     function DensityPlots() {
         let content = []
@@ -148,22 +139,22 @@ function Sidebar() {
             dataset = calculateDensities(dataset, ticks)
             dataset = mergeDatasets(dataset, ticks)
 
-           content.push(
+            content.push(
             <div className="density-plot">
             <AreaChart width={density_width} height={density_height} data={dataset}
-              margin={{ top: 10, right: 10, left: 80, bottom: 22 }}>
-              <XAxis minTickGap={50} dataKey="x" ><Label value={vars_labels[implicit_vars[i]] } angle={0} offset={10} position= 'bottom' style={{fill:'#ccc', fontSize: "80%"}}/></XAxis>
-              <YAxis ></YAxis>
-              {/*AreaGradients(dataset)*/}
-              {AreaLines(dataset)}
+                margin={{ top: 10, right: 10, left: 80, bottom: 22 }}>
+                <XAxis minTickGap={50} dataKey="x" ><Label value={vars_labels[implicit_vars[i]] } angle={0} offset={10} position= 'bottom' style={{fill:'#ccc', fontSize: "80%"}}/></XAxis>
+                <YAxis ></YAxis>
+                {/*AreaGradients(dataset)*/}
+                {AreaLines(dataset)}
             </AreaChart>
             </div>)
-          }
+            }
         return content;
     }
 
     function AreaGradients(dataset) {
-        let content = []
+       let content = []
        for (const [key, value] of Object.entries(selected_clusters)) {
           content.push(<defs>
             <linearGradient id={key} x1="0" y1="0" x2="0" y2="1">
@@ -216,92 +207,87 @@ function Sidebar() {
 	}
 
 
-  return (
+    return (
 
-    <div className="Sidebar">
+        <div className="Sidebar">
         <div style={{ width: '100%', height: "100%", position: "relative", textAlign:"Left",
-                fontSize: "24px", padding: "10px"}}>
+            fontSize: "24px", padding: "10px"}}>
 
-     {/***************************************************************************
-     *
-     *                          Cross-Cluster Analysis  
-     *
-     /*************************************************************************/}
-          <Segment className="Segment" inverted style={(active_index[0]) ? { height: '100%' } : { height: "100px"}} >
-            <Accordion inverted className="Accordion">
-                <Accordion.Title
-                  className="Accordion-Title"
-                  active={active_index[0]}
-                  index={0}
-                  onClick={() => setActiveIndex(Object.assign({}, active_index, { 0: !(active_index[0]) }))}
-                >
-                  <Icon name='dropdown' />
-                  Cross-Cluster Summary Analysis
-                </Accordion.Title>
-                <Accordion.Content active={active_index[0]} className="Accordion-Content" >
-                    <div>Densities By Implicit Variables Across Clusters</div>
-                    <div className="density-plots">{DensityPlots()}</div>
-                    <div>
-                        <div>Variance of % Segmentation By Category Across Clusters</div>
-                        <div className="variance-table" style={{fontSize: "13px",
-                            paddingRight: "0px", paddingTop: "20px"}}>{VarianceTable()}</div>
-                    </div>
-                </Accordion.Content>
-            </Accordion>
-           </Segment>
-    {/***************************************************************************
-     *
-     *                          Intra-Cluster Analysis  
-     *
-     /*************************************************************************/}
-           <Segment className="Segment" inverted style={(active_index[1]) ? { height: '82%' } : { height: "100px"}}>
+        {/***************************************************************************
+        *
+        *                          Cross-Cluster Analysis  
+        *
+        /*************************************************************************/}
+        <Segment className="Segment" inverted style={(active_index[0]) ? { height: '100%' } : { height: "100px"}} >
+        <Accordion inverted className="Accordion">
+            <Accordion.Title
+                className="Accordion-Title"
+                active={active_index[0]}
+                index={0}
+                onClick={() => setActiveIndex(Object.assign({}, active_index, { 0: !(active_index[0]) }))}
+            >
+                <Icon name='dropdown' />
+                Cross-Cluster Summary Analysis
+            </Accordion.Title>
+            <Accordion.Content active={active_index[0]} className="Accordion-Content" >
+                <div>Densities By Implicit Variables Across Clusters</div>
+                <div className="density-plots">{DensityPlots()}</div>
+                <div>
+                    <div>Variance of % Segmentation By Category Across Clusters</div>
+                    <div className="variance-table" style={{fontSize: "13px",
+                        paddingRight: "0px", paddingTop: "20px"}}>{VarianceTable()}</div>
+                </div>
+            </Accordion.Content>
+        </Accordion>
+        </Segment>
+        {/***************************************************************************
+        *
+        *                          Intra-Cluster Analysis  
+        *
+        /*************************************************************************/}
+            <Segment className="Segment" inverted style={(active_index[1]) ? { height: '82%' } : { height: "100px"}}>
                 <Accordion inverted className="Accordion">
                     <Accordion.Title
-                      className="Accordion-Title"
-                      active={active_index[1]}
-                      index={1}
-                      onClick={() => setActiveIndex(Object.assign({}, active_index, { 1: !(active_index[1]) }))}
+                        className="Accordion-Title"
+                        active={active_index[1]}
+                        index={1}
+                        onClick={() => setActiveIndex(Object.assign({}, active_index, { 1: !(active_index[1]) }))}
                     >
                     <Icon name='dropdown' />
-                      Intra-Cluster Summary Analysis
+                        Intra-Cluster Summary Analysis
                     </Accordion.Title>
                     <Accordion.Content active={active_index[1]} className="Accordion-Content">
                         <div style={{height: "50px"}}>3 x 3 Cluster Summaries <div style={{paddingLeft: "20px", display: "inline-block"}} ><button onClick={() => setRerender(!rerender)}>refresh</button></div></div>
                             {<div className="">{clustersummary(3, 3)}</div>}
                     </Accordion.Content>
             </Accordion>
-           </Segment>
-    {/***************************************************************************
-     *
-     *                          Single Point Analysis  
-     *
-     /*************************************************************************/}
-           <Segment className="Segment" inverted style={(active_index[2]) ? { height: '50%' } : { height: "100px"}}>
+            </Segment>
+        {/***************************************************************************
+        *
+        *                          Single Point Analysis  
+        *
+        /*************************************************************************/}
+            <Segment className="Segment" inverted style={(active_index[2]) ? { height: '50%' } : { height: "100px"}}>
                 <Accordion inverted className="Accordion">
                     <Accordion.Title
-                      className="Accordion-Title"
-                      active={active_index[2]}
-                      index={1}
-                      onClick={() => setActiveIndex(Object.assign({}, active_index, { 2: !(active_index[2]) }))}
+                        className="Accordion-Title"
+                        active={active_index[2]}
+                        index={1}
+                        onClick={() => setActiveIndex(Object.assign({}, active_index, { 2: !(active_index[2]) }))}
                     >
                     <Icon name='dropdown' />
-                      Single Point View
+                        Single Point View
                     </Accordion.Title>
                     <Accordion.Content active={active_index[1]} className="Accordion-Content">
                     </Accordion.Content>
             </Accordion>
-           </Segment>
+            </Segment>
         </div>
-    </div>
-  );
+        </div>
+        );
 }
 
 export default Sidebar;
-
-
-//        content.push(<div style={{float: "left", position: "relative", display: "inline-block"}}><div
-//                        style={{marginRight: "10px", fontSize: "16px", left:'0px', position: "relative", display: "inline-block"}}>
-//                            {"Cluster "}</div>)
 
 
 

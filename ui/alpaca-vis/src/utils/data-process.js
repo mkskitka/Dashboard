@@ -1,8 +1,3 @@
-//  {
-//    "x": 100,
-//    "y": 200,
-//    "z": 200
-//  },
 
 import { } from "../constants/constants"
 import {
@@ -84,7 +79,6 @@ function cleanValue(value, field) {
 }
 
 function addRawFields(datapoint) {
-
 }
 
 export const DataUtils = {

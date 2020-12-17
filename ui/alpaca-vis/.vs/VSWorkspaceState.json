@@ -3,8 +3,9 @@
     "",
     "\\src",
     "\\src\\components",
+    "\\src\\components\\ClusterView",
     "\\src\\utils"
   ],
-  "SelectedNode": "\\src\\utils\\density.js",
+  "SelectedNode": "\\src\\utils\\data-process.js",
   "PreviewInSolutionExplorer": false
 }

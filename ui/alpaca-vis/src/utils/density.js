@@ -83,4 +83,4 @@
         return newDataset
     }
     
-    export { kernelDensityEstimator, kernelEpanechnikov, Ticks, calculateDensities, calulateMin, calulateMax, mergeDatasets}
+    export { kernelDensityEstimator, kernelEpanechnikov, Ticks, calculateDensities, calulateMin, calulateMax, mergeDatasets }

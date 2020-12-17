@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FileUtils } from '../../utils/file-utils';
 import { useSelector } from 'react-redux';
 import './Sidebar.css';
-import { Segment, Accordion, Icon, Table, Header, button } from 'semantic-ui-react';
+import { Segment, Accordion, Icon, Table, Header, button, Menu } from 'semantic-ui-react';
 import Alerts from "../Alerts/Alerts";
 import { DataUtils } from '../../utils/data-process'
 import { CLUSTER_COLORS } from '../../constants/constants';
@@ -48,7 +48,8 @@ function Sidebar() {
     const cluster_labels = DataUtils.getClusterLabels(data)
     const [rerender, setRerender] = useState(true);
     const [density_width, setDensityWidth] = useState(500);
-    const [active_index, setActiveIndex] = useState({0: true, 1: false});
+    const [active_index, setActiveIndex] = useState({0: true, 1: false, 2: false});
+    const [active_cluster_tab, setActiveClusterTab] = useState(0);
 
     useEffect(() => {
         let density_width_new = $(".Sidebar").width() - 100
@@ -193,17 +194,56 @@ function Sidebar() {
         return content;
 	}
 
-    function clustersummary(x, y) {
+    function ClusterSummaryWrapper(key) {
+        return (
+            <div>
+                <div style={{height: "50px"}}>
+                    3 x 3 Cluster Summaries 
+                    <div style={{paddingLeft: "20px", display: "inline-block"}} >
+                        <button onClick={() => setRerender(!rerender)}>refresh</button>
+                    </div>
+                </div>
+                <div className="">{clustersummary(5, 5, key)}</div>
+            </div>
+        )
+	}
+
+    function clustersummary(x, y, key, cluster_data) {
         let selected_cluster_labels = DataUtils.getClusterLabels(selected_clusters)
+        return(
+                <div>
+                    <div>{x + " X " + y + " Cluster Sample"}</div>
+                    <div className="sprites-wrapper" style={{borderStyle: "solid", borderColor: CLUSTER_COLORS[key]}}>{SpriteImages(cluster_data, x)}</div>
+                </div>
+              );
+	}
+    function ClusterTabs() {
         let content = [];
         for (const [key, value] of Object.entries(selected_clusters)) {
             const cluster_data = DataUtils.getCluster(data, parseInt(key));
             if(cluster_data.length > 0) {
-                content.push(<div className="cluster-intra-summary"><div style={{width: '100%', height: '50px', float: "left"}}>{clusterCircleIcon(key)}</div>
-                <div className="sprites-wrapper" style={{borderStyle: "solid", borderColor: CLUSTER_COLORS[key]}}>{SpriteImages(cluster_data, x)}</div> </div>);
+                content.push(
+                    <Segment inverted style={{width: "100%", position: 'relative'}}>
+                        <Accordion style={{width: '100%', position: 'relative'}} inverted>
+                          <Accordion.Title
+                            active={active_cluster_tab === key}
+                            index={0}
+                          >
+                            <Icon name='dropdown'
+                                onClick={() => setActiveClusterTab(key)}
+                            />
+                            {clusterCircleIcon(key)}
+                          </Accordion.Title>
+                          <Accordion.Content style= {(active_cluster_tab === key) ? {display: "inline-block"} : null} active={active_cluster_tab === key}>
+                            {clustersummary(3, 3, key, cluster_data)}
+                          </Accordion.Content>
+                        </Accordion>
+                    </Segment>
+                )
             }
-		}
-        return content;
+        //TODO Create Accordion per Cluster
+        }
+        return content
 	}
 
 
@@ -212,79 +252,71 @@ function Sidebar() {
         <div className="Sidebar">
         <div style={{ width: '100%', height: "100%", position: "relative", textAlign:"Left",
             fontSize: "24px", padding: "10px"}}>
+            {/*************************************************************************
+            *
+            *                               Sidebar Menu  
+            *
+            /*************************************************************************/}
+            <div style={{color: "white!important"}}>
+                <Menu inverted pointing secondary>
+                    <Menu.Item
+                    name='Cross-Cluster Analysis'
+                    active={active_index[0]}
+                    onClick={() => setActiveIndex({0: true, 1: false, 2: false})}
+                    />
+                    <Menu.Item
+                    name='Intra-Cluster Analysis'
+                    active={active_index[1]}
+                    onClick={() => setActiveIndex({0: false, 1: true, 2: false})}
+                    />
+                    <Menu.Item
+                    name='Cross-Point Analysis'
+                    active={active_index[2]}
+                    onClick={() => setActiveIndex({0: false, 1: false, 2: true})}
+                    />
+                </Menu>
+            </div>
 
-        {/***************************************************************************
-        *
-        *                          Cross-Cluster Analysis  
-        *
-        /*************************************************************************/}
-        <Segment className="Segment" inverted style={(active_index[0]) ? { height: '100%' } : { height: "100px"}} >
-        <Accordion inverted className="Accordion">
-            <Accordion.Title
-                className="Accordion-Title"
-                active={active_index[0]}
-                index={0}
-                onClick={() => setActiveIndex(Object.assign({}, active_index, { 0: !(active_index[0]) }))}
-            >
-                <Icon name='dropdown' />
-                Cross-Cluster Summary Analysis
-            </Accordion.Title>
-            <Accordion.Content active={active_index[0]} className="Accordion-Content" >
-                <div>Densities By Implicit Variables Across Clusters</div>
-                <div className="density-plots">{DensityPlots()}</div>
-                <div>
-                    <div>Variance of % Segmentation By Category Across Clusters</div>
-                    <div className="variance-table" style={{fontSize: "13px",
-                        paddingRight: "0px", paddingTop: "20px"}}>{VarianceTable()}</div>
-                </div>
-            </Accordion.Content>
-        </Accordion>
-        </Segment>
-        {/***************************************************************************
-        *
-        *                          Intra-Cluster Analysis  
-        *
-        /*************************************************************************/}
-            <Segment className="Segment" inverted style={(active_index[1]) ? { height: '82%' } : { height: "100px"}}>
-                <Accordion inverted className="Accordion">
-                    <Accordion.Title
-                        className="Accordion-Title"
-                        active={active_index[1]}
-                        index={1}
-                        onClick={() => setActiveIndex(Object.assign({}, active_index, { 1: !(active_index[1]) }))}
-                    >
-                    <Icon name='dropdown' />
-                        Intra-Cluster Summary Analysis
-                    </Accordion.Title>
-                    <Accordion.Content active={active_index[1]} className="Accordion-Content">
-                        <div style={{height: "50px"}}>3 x 3 Cluster Summaries <div style={{paddingLeft: "20px", display: "inline-block"}} ><button onClick={() => setRerender(!rerender)}>refresh</button></div></div>
-                            {<div className="">{clustersummary(3, 3)}</div>}
-                    </Accordion.Content>
-            </Accordion>
-            </Segment>
-        {/***************************************************************************
-        *
-        *                          Single Point Analysis  
-        *
-        /*************************************************************************/}
-            <Segment className="Segment" inverted style={(active_index[2]) ? { height: '50%' } : { height: "100px"}}>
-                <Accordion inverted className="Accordion">
-                    <Accordion.Title
-                        className="Accordion-Title"
-                        active={active_index[2]}
-                        index={1}
-                        onClick={() => setActiveIndex(Object.assign({}, active_index, { 2: !(active_index[2]) }))}
-                    >
-                    <Icon name='dropdown' />
-                        Single Point View
-                    </Accordion.Title>
-                    <Accordion.Content active={active_index[1]} className="Accordion-Content">
-                    </Accordion.Content>
-            </Accordion>
-            </Segment>
-        </div>
-        </div>
-        );
+            {/*************************************************************************
+            *
+            *                          Cross-Cluster Analysis  
+            *
+            /*************************************************************************/}
+            {active_index[0] && 
+                <Segment className={"Segment"} inverted>
+                    <div>
+                        <div>Densities By Implicit Variables Across Clusters</div>
+                        <div className="density-plots">{DensityPlots()}</div>
+                        <div>
+                            <div>Variance of % Segmentation By Category Across Clusters</div>
+                            <div className="variance-table" style={{fontSize: "13px",
+                                paddingRight: "0px", paddingTop: "20px"}}>{VarianceTable()}</div>
+                        </div>
+                    </div>
+                </Segment>
+            }
+            {/*************************************************************************
+            *
+            *                          Intra-Cluster Analysis  
+            *
+            /*************************************************************************/}
+            {active_index[1] && 
+                <Segment className="Segment" inverted>
+                    {ClusterTabs()}
+                </Segment>
+            }
+            {/***************************************************************************
+            *
+            *                          Single Point Analysis  
+            *
+            /*************************************************************************/}
+            {active_index[2] &&  
+                <Segment className="Segment" inverted>
+                </Segment>
+            }
+    </div>
+    </div>
+    );
 }
 
 export default Sidebar;

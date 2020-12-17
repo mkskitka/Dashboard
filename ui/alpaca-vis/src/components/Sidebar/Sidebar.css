@@ -33,11 +33,6 @@ transform: rotate(-90deg);
     width: 100% !important;
 
 }
-.Segment {
-    height: 100%;
-    position: relative !important;
-
-}
 
 .variance-table {
 }
@@ -57,4 +52,10 @@ transform: rotate(-90deg);
 .cluster-intra-summary {
     position: "relative";
     float: left;
+}
+
+.Segment {
+    height: 90%;
+    position: relative;
+    overflow-y: scroll;
 }

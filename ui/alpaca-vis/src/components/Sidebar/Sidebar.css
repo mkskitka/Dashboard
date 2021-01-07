@@ -59,3 +59,8 @@ transform: rotate(-90deg);
     position: relative;
     overflow-y: scroll;
 }
+
+.collage-segment {
+    float: left;
+    padding: 20px;
+}

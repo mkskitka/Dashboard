@@ -68,9 +68,9 @@ function Sidebar() {
         return content;
     }
 
-    function TableBody() {
+    function TableBody(clusters) {
         let content = []
-        for (const [key, value] of Object.entries(selected_clusters)) {
+        for (const key of clusters) {
             let cluster_data = DataUtils.getCluster(data, parseInt(key));
             content.push(<Table.Row>{TableColumns(key, cluster_data)}</Table.Row>);
         }
@@ -107,7 +107,7 @@ function Sidebar() {
         return content;
     }
 
-    function VarianceTable() {
+    function VarianceTable(cluster_keys) {
         let content = []
         content.push(
                 <Table celled inverted >
@@ -115,13 +115,30 @@ function Sidebar() {
                     {TableHeader(segmentation_vars)}
                     </Table.Header>
                     <Table.Body>
-                    {TableBody()}
+                    {TableBody(cluster_keys)}
                     </Table.Body>
             </Table>)
         return content;
     }
 
-    function DensityPlots() {
+
+
+    function DensityPlot(dataset, i) {
+        return (
+            <div className="density-plot">
+                <AreaChart width={density_width} height={density_height} data={dataset}
+                    margin={{ top: 10, right: 10, left: 80, bottom: 22 }}>
+                    <XAxis minTickGap={50} dataKey="x" ><Label value={vars_labels[implicit_vars[i]] } angle={0} offset={10}
+                     position= 'bottom' style={{fill:'#ccc', fontSize: "80%"}}/></XAxis>
+                    <YAxis ></YAxis>
+                    {/*AreaGradients(dataset)*/}
+                    {AreaLines(dataset)}
+                </AreaChart>
+            </div>
+            );
+    }
+
+    function LayeredDensityPlots() {
         let content = []
         let range = 100
         content.push(<div className="density_label" style={x_axis_style}>Density</div>)
@@ -141,15 +158,31 @@ function Sidebar() {
             dataset = mergeDatasets(dataset, ticks)
 
             content.push(
-            <div className="density-plot">
-            <AreaChart width={density_width} height={density_height} data={dataset}
-                margin={{ top: 10, right: 10, left: 80, bottom: 22 }}>
-                <XAxis minTickGap={50} dataKey="x" ><Label value={vars_labels[implicit_vars[i]] } angle={0} offset={10} position= 'bottom' style={{fill:'#ccc', fontSize: "80%"}}/></XAxis>
-                <YAxis ></YAxis>
-                {/*AreaGradients(dataset)*/}
-                {AreaLines(dataset)}
-            </AreaChart>
-            </div>)
+                DensityPlot(dataset, i)
+                )
+            }
+        return content;
+    }
+
+    function DensityPlots(key, cluster_data) {
+        let content = []
+        let range = 100
+        content.push(<div className="density_label" style={x_axis_style}>Density</div>)
+        for(let i=0; i<implicit_vars.length; i++) {
+            let dataset = []
+            let value_arr = cluster_data.map(function(obj) { return obj.implicit_vars[implicit_vars[i]]});
+            if(value_arr.length !== 0) {
+                dataset[key] = value_arr
+            }
+            var xScaleFunction = linearScale([0, 100], [0, density_width]);
+            var ticks = Ticks(num_ticks, range, xScaleFunction)
+
+            dataset = calculateDensities(dataset, ticks)
+            dataset = mergeDatasets(dataset, ticks)
+
+            content.push(
+                DensityPlot(dataset, i)
+                )
             }
         return content;
     }
@@ -203,21 +236,12 @@ function Sidebar() {
                         <button onClick={() => setRerender(!rerender)}>refresh</button>
                     </div>
                 </div>
-                <div className="">{clustersummary(5, 5, key)}</div>
+                <div className="">{ClusterSummary(5, 5, key)}</div>
             </div>
         )
 	}
 
-    function clustersummary(x, y, key, cluster_data) {
-        let selected_cluster_labels = DataUtils.getClusterLabels(selected_clusters)
-        return(
-                <div>
-                    <div>{x + " X " + y + " Cluster Sample"}</div>
-                    <div className="sprites-wrapper" style={{borderStyle: "solid", borderColor: CLUSTER_COLORS[key]}}>{SpriteImages(cluster_data, x)}</div>
-                </div>
-              );
-	}
-    function ClusterTabs() {
+	    function ClusterTabs() {
         let content = [];
         for (const [key, value] of Object.entries(selected_clusters)) {
             const cluster_data = DataUtils.getCluster(data, parseInt(key));
@@ -235,15 +259,59 @@ function Sidebar() {
                             {clusterCircleIcon(key)}
                           </Accordion.Title>
                           <Accordion.Content style= {(active_cluster_tab === key) ? {display: "inline-block"} : null} active={active_cluster_tab === key}>
-                            {clustersummary(3, 3, key, cluster_data)}
+                            {ClusterSummary(3, 3, key, cluster_data)}
                           </Accordion.Content>
                         </Accordion>
                     </Segment>
                 )
             }
-        //TODO Create Accordion per Cluster
         }
         return content
+	}
+
+    function ClusterSummary(x, y, key, cluster_data) {
+        let selected_cluster_labels = DataUtils.getClusterLabels(selected_clusters)
+        return(
+                <div>
+                    {/*************************************************************************
+                    *
+                    *                        3 x 3 cluster image sample   
+                    *
+                    /*************************************************************************/}
+                    <div className="collage-segment">
+                        <div>{x + " X " + y + " Cluster Sample"}</div>
+                        <div className="sprites-wrapper" style={{borderStyle: "solid", borderColor: CLUSTER_COLORS[key]}}>
+                            {SpriteImages(cluster_data, x)}
+                        </div>
+                    </div>
+                    {/*************************************************************************
+                    *
+                    *                        Competency Statistics    
+                    *
+                    /*************************************************************************/}
+                    <div className="collage-segment">
+                    <div>{"Competency Statistics"}</div>
+                        <div className="competency-stats">
+                          coming soon 
+                        </div>
+                    </div>
+                    {/*************************************************************************
+                    *
+                    *                         Segmentation Table
+                    *
+                    /*************************************************************************/}
+                     <div className="variance-table" style={{fontSize: "13px",
+                           paddingRight: "0px", paddingTop: "20px"}}>{VarianceTable([key])}</div>
+                    {/*************************************************************************
+                    *
+                    *                         Density Plots
+                    *
+                    /*************************************************************************/}
+                    <div>{DensityPlots(key, cluster_data)}</div>
+
+
+                </div>
+              );
 	}
 
 
@@ -257,7 +325,7 @@ function Sidebar() {
             *                               Sidebar Menu  
             *
             /*************************************************************************/}
-            <div style={{color: "white!important"}}>
+            <div style={{color: "white! important"}}>
                 <Menu inverted pointing secondary>
                     <Menu.Item
                     name='Cross-Cluster Analysis'
@@ -286,11 +354,11 @@ function Sidebar() {
                 <Segment className={"Segment"} inverted>
                     <div>
                         <div>Densities By Implicit Variables Across Clusters</div>
-                        <div className="density-plots">{DensityPlots()}</div>
+                        <div className="density-plots">{LayeredDensityPlots()}</div>
                         <div>
                             <div>Variance of % Segmentation By Category Across Clusters</div>
                             <div className="variance-table" style={{fontSize: "13px",
-                                paddingRight: "0px", paddingTop: "20px"}}>{VarianceTable()}</div>
+                                paddingRight: "0px", paddingTop: "20px"}}>{VarianceTable(Object.keys(selected_clusters))}</div>
                         </div>
                     </div>
                 </Segment>

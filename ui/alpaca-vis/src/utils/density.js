@@ -47,7 +47,7 @@
 
     function calulateMin(dataset) {
        let mins = []
-        for (const [key, value] of Object.entries(dataset)) {
+        for (const value of Object.values(dataset)) {
             mins.push(Math.min(...value))
         }
         return Math.min(...mins)
@@ -55,7 +55,7 @@
 
     function calulateMax(dataset) {
        let maxes = []
-        for (const [key, value] of Object.entries(dataset)) {
+        for (const value of Object.values(dataset)) {
             maxes.push(Math.max(...value))
         }
         return Math.max(...maxes)

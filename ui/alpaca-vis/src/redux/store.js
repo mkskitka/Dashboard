@@ -1,7 +1,7 @@
 /**
  * Redux store
  */
-import { createStore, combineReducers } from "redux";
+import { createStore } from "redux";
 import tailwaterReducer from "./reducer";
 
 //const rootReducer = combineReducers({sidebarReducer,

@@ -10,6 +10,21 @@ var _ = require('lodash');
  */
 
 var dataUtils = {
+    setSelected: function(data, selected_points) {
+        for(let i=0; i<data.length; i++) {
+            let index = _.findIndex(selected_points, function(o) { return o.id === data[i].id;});
+            if(index !== -1) {
+                data[i].selected = selected_points[index].selected;
+                data[i].num_selected = index;
+            }
+            else {
+                data[i].selected = false;
+                data[i].num_selected = 0;
+            }
+        }
+        return data;
+
+    },
     processRaw: function(raw_data) {
         let columns = raw_data[0]
         let processed_data = []
@@ -22,6 +37,9 @@ var dataUtils = {
             }
             obj.img_id = obj.image.replace(".png", '').replace("\\s", "");
             obj.img_id = parseInt(obj.img_id)
+            obj.selected = false;
+            obj.num_selected = 0;
+            obj.id= obj.path + obj.id;
             processed_data.push(obj);
         }
         return processed_data;
@@ -49,11 +67,6 @@ var dataUtils = {
 	},
 }
 
-
-function isInt(n) {
-   return n % 1 === 0;
-}
-
 function cleanField(field) {
     if(field.includes("x")){
         field = "x"
@@ -66,7 +79,7 @@ function cleanValue(value, field) {
     if(field === "cluster") {
         new_value = parseInt(value)
     }
-    else if(field === "path" || field==="image" || field== "id") {
+    else if(field === "path" || field==="image" || field === "id") {
         return value
     }
     else if(field === "implicit_vars") {
@@ -78,12 +91,10 @@ function cleanValue(value, field) {
     return new_value
 }
 
-function addRawFields(datapoint) {
-}
-
 export const DataUtils = {
 	processRaw: dataUtils.processRaw,
 	getCluster: dataUtils.getCluster,
 	getClusterLabels: dataUtils.getClusterLabels,
 	variance: dataUtils.variance,
+	setSelected: dataUtils.setSelected,
 };

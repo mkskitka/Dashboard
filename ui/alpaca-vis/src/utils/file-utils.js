@@ -4,8 +4,8 @@
 import axios from 'axios';
 import { API_REST } from "../config/devconfig";
 
-//MeterCimarron_May2020_done.xlsx
-var test_filename = "subsample.csv";
+//var test_filename = "subsample.csv";
+var test_filename = "cluster_coordinates.csv";
 
 var fileUtils = {
 		importCSV: async function(filename) {

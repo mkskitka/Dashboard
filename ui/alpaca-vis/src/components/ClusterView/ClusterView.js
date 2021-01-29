@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { FileUtils } from '../../utils/file-utils';
+import React, { useEffect } from 'react';
 import { DataUtils } from '../../utils/data-process';
 import { useSelector, useDispatch } from 'react-redux';
 import "./ClusterView.css"
-import { Breadcrumb, Button, Icon, Popup, Checkbox } from 'semantic-ui-react';
+import { Checkbox } from 'semantic-ui-react';
 import { CLUSTER_COLORS } from '../../constants/constants';
-import { ScatterChart, CartesianGrid, Scatter, ZAxis, XAxis, YAxis, ResponsiveContainer,
- Tooltip, Legend } from 'recharts';
+import { ScatterChart, Scatter, ZAxis, XAxis, YAxis, ResponsiveContainer,
+ Tooltip} from 'recharts';
 import sprites from '../sprites';
 
+import {
+	ADD_CLUSTER_GRAPH_DATA,
+	UPDATE_SELECTED_CLUSTERS,
+} from '../../redux/action-types';
+
  const THUMBNAIL_H = 60;
- const THUMBNAIL_W = 96;
+// const THUMBNAIL_W = 96;
 
 
 const legend_checkbox_style = {
@@ -22,42 +26,50 @@ const legend_checkbox_style = {
 
 }
 
-const legend_wrapper = {
-    margin: "0px auto",
-    width: '200px',
-    position: "absolute !important",
-    top: "-200px !important",
-    right: "200px !important"
-}
 
 function ClusterView() {
-  const dispatch = useDispatch()
-  // Component Did Mount
+  const dispatch = useDispatch();
+   const data = useSelector(state => state.cluster_graph_data)
+ const selected_clusters = useSelector(state => state.selected_clusters)
+ const cluster_labels = DataUtils.getClusterLabels(data)
+ const selected_points = useSelector(state => state.selected_points);
+
   useEffect(() => {
-    console.log("cluster view did mount")
-  }, []);
+    console.log("updating selected points")
+    let newData = DataUtils.setSelected(data, selected_points)
+    dispatch({ type: ADD_CLUSTER_GRAPH_DATA, data: newData})
+    let newSelectedClusters = Object.assign({}, selected_clusters)
+    dispatch({ type: UPDATE_SELECTED_CLUSTERS, selected_clusters: newSelectedClusters})
+  }, [selected_points]);
 
 
   function handleChange(value) {
-    console.log("in handle change", value)
     let newSelectedClusters = Object.assign({}, selected_clusters)
     newSelectedClusters[value] = !newSelectedClusters[value]
     dispatch({ type: "UPDATE_SELECTED_CLUSTERS", selected_clusters: newSelectedClusters})
    }
 
- const data = useSelector(state => state.cluster_graph_data)
- const selected_clusters = useSelector(state => state.selected_clusters)
- const cluster_labels = DataUtils.getClusterLabels(data)
+function selectPoint(point) {
+    dispatch({ type: "UPDATE_SELECTED_POINTS", selected_point: point})
+}
+
+function CustomizedShape(d) {
+    return (
+        <svg width="100%" height="100%">
+        <circle r={d.selected ? 5 : 3} stoke="black" cx={d.x} cy={d.y} strokeWidth={d.selected ? 2: 0} opacity={(d.selected) ? 1 : .7} fill={d.fill} />
+        <text x={d.x + 5} y={d.y} fill="white" className="small">{d.selected ? d.num_selected : ""}</text>
+        </svg>
+    )
+}
 
 function Clusters(props) {
-    console.log("in cluster function")
     let content = [];
     let cluster_labels = DataUtils.getClusterLabels(data)
-    console.log(cluster_labels)
     for(let i=0; i<cluster_labels.length; i++) {
         if(selected_clusters[cluster_labels[i]]) {
             let cluster_data = DataUtils.getCluster(data, cluster_labels[i])
-            content.push(<Scatter key={cluster_labels[i]} name={cluster_labels[i]} data={cluster_data} fill={CLUSTER_COLORS[cluster_labels[i]]} />)
+            content.push(<Scatter onClick= {(e) => selectPoint(e)} key={cluster_labels[i]} name={cluster_labels[i]}
+             shape={(d) => CustomizedShape(d)} data={cluster_data} fill={CLUSTER_COLORS[cluster_labels[i]]} />)
         }
     }
     return content;
@@ -72,12 +84,6 @@ const CustomTooltip = ({ active, payload, label }) => {
             <div className="custom-tooltip">
             <div style={{borderColor: CLUSTER_COLORS[payload[0].payload.cluster], borderWeight: '1px',
                 backgroundPosition:  "0px " + image_offset+"px" , backgroundImage: "url("+sprite_img+")"}} className="node_image" />
-            <div>{"Path: " + payload[0].payload.path + "/" + payload[0].payload.image}</div>
-            <div>{"% Close: " + payload[0].payload.implicit_vars.percent_close.toFixed(2)}</div>
-            <div>{"% Sky: " + payload[0].payload.implicit_vars.percent_sky.toFixed(2)}</div>
-            <div>{"% Dark: " + payload[0].payload.implicit_vars.percent_dark.toFixed(2)}</div>
-            <div>{"% Ground: " + payload[0].payload.implicit_vars.percent_ground.toFixed(2)}</div>
-            <div>{"% Saturated: " + payload[0].payload.implicit_vars.percent_saturated.toFixed(2)}</div>
             </div>
         );
     }
@@ -88,9 +94,9 @@ const CustomizedLegend = (props) => {
     let legend = cluster_labels.map(function(entry, index) {
         let num_datapoints = DataUtils.getCluster(data, entry).length
         return(
-            <div key={entry} 
+            <div key={entry}
                 style={legend_checkbox_style}>
-                <Checkbox 
+                <Checkbox
                     value={entry}
                     checked={selected_clusters[entry]}
                     onChange={() =>handleChange(entry)}
@@ -126,6 +132,7 @@ return (
                     margin={{ top: 20, right: 20, bottom: 10, left: 10 }}>
                     <XAxis type="number" dataKey="x" name="x" unit=""  />
                     <YAxis dataKey="y" name="y" unit="" />
+                    <ZAxis dataKey="z" range={[64, 144]} name="score" unit="km" />
                     <Tooltip content={<CustomTooltip />} cursor={{ strokeDasharray: '3 3' }} />
                     {Clusters()}
                 </ScatterChart>

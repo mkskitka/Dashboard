@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { FileUtils } from '../../utils/file-utils';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './Sidebar.css';
-import { Segment, Accordion, Icon, Table, Header, button, Menu } from 'semantic-ui-react';
-import Alerts from "../Alerts/Alerts";
+import { Segment, Accordion, Table, Header, Menu, Icon } from 'semantic-ui-react';
 import { DataUtils } from '../../utils/data-process'
 import { CLUSTER_COLORS } from '../../constants/constants';
-import { create, all } from 'mathjs'
-import { AreaChart, XAxis, YAxis, CartesianGrid, Tooltip, Area, Label } from 'recharts';
-import { kernelDensityEstimator, kernelEpanechnikov, Ticks, calculateDensities, calulateMin, calulateMax, mergeDatasets} from '../../utils/density';
+import { AreaChart, XAxis, YAxis, Area, Label } from 'recharts';
+import {  Ticks, calculateDensities, mergeDatasets} from '../../utils/density';
 import $ from 'jquery';
 import sprites from '../sprites';
+import {
+	UPDATE_SELECTED_CLUSTERS,
+	UPDATE_SELECTED_POINTS,
+} from '../../redux/action-types';
 var _ = require('lodash');
 
 const THUMBNAIL_H = 60;
-const THUMBNAIL_W = 96;
-
-const config = { }
-const math = create(all, config)
+//const THUMBNAIL_W = 96;
 const density_height = 150;
 const num_ticks = 40;
 
@@ -25,6 +23,7 @@ var linearScale = require('simple-linear-scale');
 
 const segmentation_vars = ["Bushes", "Cars", "Curb_Wall", "Fence", "Ground", "House", "Road", "Sign", "Sky", "Tree", "?" ]
 const implicit_vars = ["percent_dark", "percent_ground", "percent_saturated", "percent_close", "percent_sky"]
+
 
 
 const vars_labels = {
@@ -42,14 +41,13 @@ const x_axis_style = {
 
 }
 function Sidebar() {
-
+    const dispatch = useDispatch();
     const data = useSelector(state => state.cluster_graph_data)
     const selected_clusters = _.pickBy(useSelector(state => state.selected_clusters), function(value, key) { return value; });
-    const cluster_labels = DataUtils.getClusterLabels(data)
-    const [rerender, setRerender] = useState(true);
     const [density_width, setDensityWidth] = useState(500);
     const [active_index, setActiveIndex] = useState({0: true, 1: false, 2: false});
-    const [active_cluster_tab, setActiveClusterTab] = useState(0);
+    const [active_cluster_tab, setActiveClusterTab] = useState(1);
+    const selected_points = useSelector(state => state.selected_points);
 
     useEffect(() => {
         let density_width_new = $(".Sidebar").width() - 100
@@ -59,9 +57,16 @@ function Sidebar() {
         $(".Accordion-Content").height($(".Sidebar").height())
     }, [])
 
-    function TableHeader(vars) {
+    function TableHeader(vars, key) {
         let content = []
-        content.push(<Table.HeaderCell>{"Cluster"}</Table.HeaderCell>)
+        content.push(<Table.HeaderCell key={key}>{"Cluster"}</Table.HeaderCell>)
+        for(let i=0; i< vars.length; i++) {
+            content.push(<Table.HeaderCell key={"key"+vars[i]}>{vars[i]}</Table.HeaderCell>)
+        }
+        return content;
+    }
+        function TableHeaderDatapoint(vars) {
+        let content = []
         for(let i=0; i< vars.length; i++) {
             content.push(<Table.HeaderCell>{vars[i]}</Table.HeaderCell>)
         }
@@ -72,9 +77,20 @@ function Sidebar() {
         let content = []
         for (const key of clusters) {
             let cluster_data = DataUtils.getCluster(data, parseInt(key));
-            content.push(<Table.Row>{TableColumns(key, cluster_data)}</Table.Row>);
+            content.push(<Table.Row key={key+ "row"}>{TableColumns(key, cluster_data)}</Table.Row>);
         }
         return content
+    }
+    function TableBodyDatapoint(d) {
+        return(<Table.Row>{TableColumnsDatapoint(d)}</Table.Row>);
+    }
+    function TableColumnsDatapoint(d) {
+        let content = []
+            for(let i=0; i<segmentation_vars.length; i++) {
+                let value = d.implicit_vars.percent_segmentation[segmentation_vars[i]];
+                content.push(<Table.Cell>{(typeof value !== "undefined" ) ? value.toFixed(2) : "N/a"}</Table.Cell>)
+            }
+        return content;
     }
 
     function clusterCircleIcon(key) {
@@ -94,14 +110,14 @@ function Sidebar() {
         let content = []
         if(data.length > 0) {
             content.push(
-            <Table.Cell>{
+            <Table.Cell key={key+"col"}>{
                 ClusterIcon(key)
                 }</Table.Cell>
             )
             for(let i=0; i<segmentation_vars.length; i++) {
                 let value_arr = data.map(function(obj) { return obj.implicit_vars.percent_segmentation[segmentation_vars[i]]});
                 value_arr = value_arr.filter(function(x) { return x !== undefined})
-                content.push(<Table.Cell>{DataUtils.variance(value_arr).toFixed(2)}</Table.Cell>)
+                content.push(<Table.Cell key={key+i+ "coll"}>{DataUtils.variance(value_arr).toFixed(2)}</Table.Cell>)
             }
         }
         return content;
@@ -110,9 +126,9 @@ function Sidebar() {
     function VarianceTable(cluster_keys) {
         let content = []
         content.push(
-                <Table celled inverted >
+                <Table celled key={cluster_keys+ "table"} inverted >
                 <Table.Header>
-                    {TableHeader(segmentation_vars)}
+                    {TableHeader(segmentation_vars, "varience_table")}
                     </Table.Header>
                     <Table.Body>
                     {TableBody(cluster_keys)}
@@ -124,8 +140,12 @@ function Sidebar() {
 
 
     function DensityPlot(dataset, i) {
+        if(data.length > 0) {
+            console.log("Density Plot Dataset cluster_data", i, " :",  dataset);
+            console.log(JSON.stringify(dataset))
+        }
         return (
-            <div className="density-plot">
+            <div key={i+"densityplot"} className="density-plot">
                 <AreaChart width={density_width} height={density_height} data={dataset}
                     margin={{ top: 10, right: 10, left: 80, bottom: 22 }}>
                     <XAxis minTickGap={50} dataKey="x" ><Label value={vars_labels[implicit_vars[i]] } angle={0} offset={10}
@@ -141,10 +161,10 @@ function Sidebar() {
     function LayeredDensityPlots() {
         let content = []
         let range = 100
-        content.push(<div className="density_label" style={x_axis_style}>Density</div>)
+        content.push(<div key={"density-label"} className="density_label" style={x_axis_style}>Density</div>)
         for(let i=0; i<implicit_vars.length; i++) {
             let dataset = []
-            for (const [key, value] of Object.entries(selected_clusters)) {
+            for (const key of Object.keys(selected_clusters)) {
                 let cluster_data = DataUtils.getCluster(data, parseInt(key));
                 let value_arr = cluster_data.map(function(obj) { return obj.implicit_vars[implicit_vars[i]]});
                 if(value_arr.length !== 0) {
@@ -153,10 +173,16 @@ function Sidebar() {
             }
             var xScaleFunction = linearScale([0, 100], [0, density_width]);
             var ticks = Ticks(num_ticks, range, xScaleFunction)
-
+            if(data.length > 0) {
+                console.log(" Layered Density Plot Dataset (Pre Processing) ", i, " :",  dataset);
+                console.log(JSON.stringify(dataset[0]))
+            }
             dataset = calculateDensities(dataset, ticks)
             dataset = mergeDatasets(dataset, ticks)
-
+            if(data.length > 0) {
+                 console.log(" Layered Density Plot Dataset ", i, " :",  dataset);
+                console.log(JSON.stringify(dataset[0]))
+            }
             content.push(
                 DensityPlot(dataset, i)
                 )
@@ -187,34 +213,48 @@ function Sidebar() {
         return content;
     }
 
-    function AreaGradients(dataset) {
-       let content = []
-       for (const [key, value] of Object.entries(selected_clusters)) {
-          content.push(<defs>
-            <linearGradient id={key} x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor={CLUSTER_COLORS[key]} stopOpacity={0.8}/>
-              <stop offset="95%" stopColor={CLUSTER_COLORS[key]}  stopOpacity={0}/>
-            </linearGradient>
-          </defs>)
-       }
-       return content;
-    }
+//    function AreaGradients(dataset) {
+//       let content = []
+//       for (const [key, value] of Object.entries(selected_clusters)) {
+//          content.push(<defs>
+//            <linearGradient id={key} x1="0" y1="0" x2="0" y2="1">
+//              <stop offset="5%" stopColor={CLUSTER_COLORS[key]} stopOpacity={0.8}/>
+//              <stop offset="95%" stopColor={CLUSTER_COLORS[key]}  stopOpacity={0}/>
+//            </linearGradient>
+//          </defs>)
+//       }
+//       return content;
+//    }
 
     function AreaLines(dataset) {
         let content = []
-        for (const [key, value] of Object.entries(selected_clusters)) {
+        for (const key of Object.keys(selected_clusters)) {
             content.push(
-            <Area type="monotone" style={{strokeWidth: "2.5"}} dataKey={key} stroke={CLUSTER_COLORS[key]} fillOpacity={1} fill={"url(#"+ key+ ")"} />)
+            <Area type="monotone" style={{strokeWidth: "2.5"}} dataKey={key} key={key+"AreaLines"} stroke={CLUSTER_COLORS[key]} fillOpacity={1} fill={"url(#"+ key+ ")"} />)
         }
         return content;
     }
 
+    function findRandomUnusedIndex(cluster_data, used_indices) {
+        var index =  Math.floor(Math.random() * cluster_data.length);
+        while(used_indices.includes(index)) {
+            index =  Math.floor(Math.random() * cluster_data.length);
+        }
+        return index;
+    }
+
     function SpriteImages(cluster_data, x) {
         let content = []
+        let used_indices = []
         for (let rows = 0; rows < x; rows++) {
             for (let cols = 0; cols < x; cols++) {
-                const random_datapoint = cluster_data[Math.floor(Math.random() * cluster_data.length)];
-                const image_id = random_datapoint.img_id  
+                if(used_indices.length === cluster_data.length) {
+                    return content;
+                }
+                const random_index = findRandomUnusedIndex(cluster_data, used_indices);
+                used_indices.push(random_index);
+                const random_datapoint = cluster_data[random_index];
+                const image_id = random_datapoint.img_id
                 const image_offset = -(image_id * THUMBNAIL_H)
                 let sprite_id = random_datapoint.path.split("01-01-")[1]
                 sprite_id = sprite_id.replace(/\s+/g, '')
@@ -227,34 +267,24 @@ function Sidebar() {
         return content;
 	}
 
-    function ClusterSummaryWrapper(key) {
-        return (
-            <div>
-                <div style={{height: "50px"}}>
-                    3 x 3 Cluster Summaries 
-                    <div style={{paddingLeft: "20px", display: "inline-block"}} >
-                        <button onClick={() => setRerender(!rerender)}>refresh</button>
-                    </div>
-                </div>
-                <div className="">{ClusterSummary(5, 5, key)}</div>
-            </div>
-        )
-	}
-
 	    function ClusterTabs() {
         let content = [];
-        for (const [key, value] of Object.entries(selected_clusters)) {
+        for (const key of Object.keys(selected_clusters)) {
+             if(data.length > 0) {
+                console.log("all data (in sidebar - post initial processing): ", data)
+                console.log(JSON.stringify(data[0]))
+              }
             const cluster_data = DataUtils.getCluster(data, parseInt(key));
             if(cluster_data.length > 0) {
                 content.push(
-                    <Segment inverted style={{width: "100%", position: 'relative'}}>
+                    <Segment inverted style={{width: "100%", position: 'relative', marginTop: '20px'}}>
                         <Accordion style={{width: '100%', position: 'relative'}} inverted>
                           <Accordion.Title
                             active={active_cluster_tab === key}
                             index={0}
                           >
                             <Icon name='dropdown'
-                                onClick={() => setActiveClusterTab(key)}
+                                onClick={() => (active_cluster_tab === key) ? setActiveClusterTab(-1) : setActiveClusterTab(key)}
                             />
                             {clusterCircleIcon(key)}
                           </Accordion.Title>
@@ -268,9 +298,48 @@ function Sidebar() {
         }
         return content
 	}
+	function deletePoint(point) {
+        dispatch({ type: UPDATE_SELECTED_POINTS, selected_point: point})
+            let newSelectedClusters = Object.assign({}, selected_clusters)
+    dispatch({ type: UPDATE_SELECTED_CLUSTERS, selected_clusters: newSelectedClusters})
+	}
+
+	function Datapoints() {
+	    let content = [];
+	    if(selected_points.length === 0) {
+	        return(<div style={{opacity: ".5", fontSize: "14px", textAlign: "center"}}>Select Data Point in t-SNE graph for Viewing</div>)
+	    }
+	    for(let i=0; i<selected_points.length; i++) {
+            let image_offset = -(selected_points[i].img_id * THUMBNAIL_H)
+            let sprite_id = selected_points[i].path.split("01-01-")[1]
+            sprite_id = sprite_id.replace(/\s+/g, '')
+            let sprite_img = sprites[sprite_id]
+	        content.push (
+	        <div>
+	                        <div style={{width: '10px', position: "relative", float: "left"}}>{i +"."}</div>
+	             <div style={{borderColor: CLUSTER_COLORS[selected_points[i].cluster], borderStyle: "solid", borderWeight: '4px', width: "90px", float: "left", margin: '20px',
+                backgroundPosition:  "0px " + image_offset+"px" , position: "relative", backgroundImage: "url("+sprite_img+")"}} className="node_image" />
+
+    <Icon onClick={() => deletePoint(selected_points[i])} style={{position: "relative", float: "right", top: '10px'}}  name='close' />
+
+                <div className="variance-table" style={{fontSize: "13px",
+                           paddingRight: "0px", paddingTop: "20px"}}>
+                <Table celled inverted >
+                <Table.Header>
+                    {TableHeaderDatapoint(segmentation_vars)}
+                </Table.Header>
+                    <Table.Body>
+                    {TableBodyDatapoint(selected_points[i])}
+                    </Table.Body>
+                    </Table>
+                    </div>
+                    </div>
+	        );
+	    }
+	    return content;
+	}
 
     function ClusterSummary(x, y, key, cluster_data) {
-        let selected_cluster_labels = DataUtils.getClusterLabels(selected_clusters)
         return(
                 <div>
                     {/*************************************************************************
@@ -286,13 +355,13 @@ function Sidebar() {
                     </div>
                     {/*************************************************************************
                     *
-                    *                        Competency Statistics    
+                    *                        Competency Statistics
                     *
                     /*************************************************************************/}
                     <div className="collage-segment">
                     <div>{"Competency Statistics"}</div>
-                        <div className="competency-stats">
-                          coming soon 
+                        <div style={{opacity: ".5", fontSize: "14px", textAlign: "center"}} className="competency-stats">
+                          coming soon
                         </div>
                     </div>
                     {/*************************************************************************
@@ -300,6 +369,7 @@ function Sidebar() {
                     *                         Segmentation Table
                     *
                     /*************************************************************************/}
+                     <div style={{marginTop: "10px", width: "100%", position: "relative"}}>{"% Segmentation"}</div>
                      <div className="variance-table" style={{fontSize: "13px",
                            paddingRight: "0px", paddingTop: "20px"}}>{VarianceTable([key])}</div>
                     {/*************************************************************************
@@ -307,6 +377,7 @@ function Sidebar() {
                     *                         Density Plots
                     *
                     /*************************************************************************/}
+                    <div style={{width: "100%", position: "relative", marginTop: '20px'}}>{"Densities by Implicit Variable"}</div>
                     <div>{DensityPlots(key, cluster_data)}</div>
 
 
@@ -380,6 +451,7 @@ function Sidebar() {
             /*************************************************************************/}
             {active_index[2] &&  
                 <Segment className="Segment" inverted>
+                    {Datapoints()}
                 </Segment>
             }
     </div>

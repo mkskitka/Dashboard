@@ -27,7 +27,7 @@ import z from "./12-00-00_rain_1.0_snow_1.0_fog_1.0.png";
 import aa from "./12-00-00_rain_1.0_snow_1.0_leaves_1.0.png";
 import ab from "./12-00-00_rain_1.0_snow_1.0_leaves_1.0_fog_1.0.png";
 import ac from "./12-00-00_snow_1.0.png";
-import ad from "./12-00-00_snow_1.0.png";
+//import ad from "./12-00-00_snow_1.0.png";
 import ae from "./12-00-00_snow_1.0_leaves_1.0.png";
 import af from "./12-00-00_snow_1.0_leaves_1.0_fog_1.0.png";
 
@@ -55,12 +55,13 @@ const sprites = {
     "12-00-00_rain_1.0": u,
     "12-00-00_rain_1.0_fog_1.0": v,
     "12-00-00_rain_1.0_leaves_1.0": w, 
-    "12-00-00_rain_1.0_leaves_1.0_fog_1.0": x, 
-    "12-00-00_rain_1.0_snow_1.0": z, 
+    "12-00-00_rain_1.0_leaves_1.0_fog_1.0": x,
+    "12-00-00_rain_1.0_snow_1.0" : y,
+    "12-00-00_rain_1.0_snow_1.0_fog_1.0": z,
     "12-00-00_rain_1.0_snow_1.0_leaves_1.0": aa, 
     "12-00-00_rain_1.0_snow_1.0_leaves_1.0_fog_1.0": ab, 
-    "12-00-00_snow_1.0": ac, 
-    "12-00-00_snow_1.0": ad, 
+    "12-00-00_snow_1.0": ac,
+//    "12-00-00_snow_1.0": ad,
     "12-00-00_snow_1.0_leaves_1.0": ae, 
     "12-00-00_snow_1.0_leaves_1.0_fog_1.0": af, 
 }
